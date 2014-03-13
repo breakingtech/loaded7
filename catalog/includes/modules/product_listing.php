@@ -10,6 +10,8 @@
 // create column list
 $define_list = array('PRODUCT_LIST_MODEL' => PRODUCT_LIST_MODEL,
                      'PRODUCT_LIST_NAME' => PRODUCT_LIST_NAME,
+                     'PRODUCT_LIST_BLURB' => PRODUCT_LIST_BLURB,
+                     'PRODUCT_LIST_DESCRIPTION' => PRODUCT_LIST_DESCRIPTION,
                      'PRODUCT_LIST_MANUFACTURER' => PRODUCT_LIST_MANUFACTURER,
                      'PRODUCT_LIST_PRICE' => PRODUCT_LIST_PRICE,
                      'PRODUCT_LIST_QUANTITY' => PRODUCT_LIST_QUANTITY,
@@ -42,12 +44,18 @@ if ($Qlisting->numberOfRows() > 0) {
 
         case 'PRODUCT_LIST_NAME':
           if (isset($_GET['manufacturers'])) {
-            $output .= '<div class="product-listing-module-name">' . lc_link_object(lc_href_link(FILENAME_PRODUCTS, $lC_Product->getKeyword() . '&manufacturers=' . $_GET['manufacturers']), $lC_Product->getTitle()) . '</div>' . "\n" .
-                      '<div class="product-listing-module-description">' . ((strlen(lc_clean_html($lC_Product->getDescription())) > 65) ? substr(lc_clean_html($lC_Product->getDescription()), 0, 62) . '...' : lc_clean_html($lC_Product->getDescription())) . '</div>' . "\n";
+            $output .= '<div class="product-listing-module-name">' . lc_link_object(lc_href_link(FILENAME_PRODUCTS, $lC_Product->getKeyword() . '&manufacturers=' . $_GET['manufacturers']), $lC_Product->getTitle()) . '</div>' . "\n";
           } else {
-            $output .= '<div class="product-listing-module-name">' . lc_link_object(lc_href_link(FILENAME_PRODUCTS, $lC_Product->getKeyword() . ($cPath ? '&cPath=' . $cPath : '')), $lC_Product->getTitle()) . '</div>' . "\n" . 
-                      '<div class="product-listing-module-description">' . ((strlen(lc_clean_html($lC_Product->getDescription())) > 65) ? substr(lc_clean_html($lC_Product->getDescription()), 0, 62) . '...' : lc_clean_html($lC_Product->getDescription())) . '</div>' . "\n";
+            $output .= '<div class="product-listing-module-name">' . lc_link_object(lc_href_link(FILENAME_PRODUCTS, $lC_Product->getKeyword() . ($cPath ? '&cPath=' . $cPath : '')), $lC_Product->getTitle()) . '</div>' . "\n"; 
           }
+          break;
+
+        case 'PRODUCT_LIST_BLURB':
+          $output .= '<div class="product-listing-module-blurb">' . ((strlen(lc_clean_html($lC_Product->getBlurb())) > 65) ? substr(lc_clean_html($lC_Product->getBlurb()), 0, 62) . '...' : lc_clean_html($lC_Product->getBlurb())) . '</div>' . "\n";
+          break;
+
+        case 'PRODUCT_LIST_DESCRIPTION':
+          $output .= '<div class="product-listing-module-description">' . ((strlen(lc_clean_html($lC_Product->getDescription())) > 65) ? substr(lc_clean_html($lC_Product->getDescription()), 0, 62) . '...' : lc_clean_html($lC_Product->getDescription())) . '</div>' . "\n";
           break;
 
         case 'PRODUCT_LIST_MANUFACTURER':
@@ -88,7 +96,6 @@ if ($Qlisting->numberOfRows() > 0) {
       }
     }
     $output .= '</div>' . "\n";
-    
   }     
 } else {
   $output .= '<div class="product-listing-module-no-products"><p>' . $lC_Language->get('no_products_in_category') . '</p></div>';

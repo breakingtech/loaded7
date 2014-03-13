@@ -90,6 +90,8 @@ $(document).ready(function() {
     var imageContent = $(this).find('div.product-listing-module-image').html();
     var nameContent = $(this).find('div.product-listing-module-name').html();
     var nameContentText = $(this).find('div.product-listing-module-name').text();
+    var blurbContent = $(this).find('div.product-listing-module-blurb').html();
+    var blurbContentText = $(this).find('div.product-listing-module-blurb').text();
     var descContent = $(this).find('div.product-listing-module-description').html();
     var descContentText = $(this).find('div.product-listing-module-description').text();
     var priceContent = $(this).find('div.product-listing-module-price').html();
@@ -99,6 +101,9 @@ $(document).ready(function() {
     var newNameContentText = (nameContentText.length > 18) ? nameContentText.substr(0, 15) + '...' : nameContentText;
     nameContent = nameContent.replace(nameContentText, newNameContentText);  
     
+    var newBlurbContentText = (blurbContentText.length > 65) ? blurbContentText.substr(0, 62) + '...' : blurbContentText;
+    blurbContent = blurbContent.replace(blurbContentText, newBlurbContentText);      
+    
     var newDescContentText = (descContentText.length > 65) ? descContentText.substr(0, 62) + '...' : descContentText;
     descContent = descContent.replace(descContentText, newDescContentText);      
     
@@ -106,6 +111,7 @@ $(document).ready(function() {
              '  <div class="thumbnail align-center large-padding-top">'+ imageContent +
              '    <div class="caption">' +
              '      <h3 style="line-height:1.1;">' + nameContent + '</h3>' +
+             '      <p class="">' + blurbContent + '</p>' +
              '      <p class="">' + descContent + '</p>' +
              '      <div class="row">' +
              '        <div class="col-sm-6 col-lg-6">' +

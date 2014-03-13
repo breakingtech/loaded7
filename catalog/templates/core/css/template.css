@@ -171,7 +171,9 @@
 /********************************************************/
 /*             6. Main layout styles                    */
 /********************************************************/
-
+.container {
+  max-width: 975px;
+}
 /* header/nav */
 #loaded7 .topnav {
   width: 100%;
@@ -283,7 +285,7 @@
 }
 
 #loaded7 .navbar .container {
-  max-width: 1170px;
+  max-width: 975px;
 }
 
 #loaded7 .navbar-inverse .container {
