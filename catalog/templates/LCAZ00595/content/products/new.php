@@ -99,20 +99,15 @@ $(document).ready(function() {
     var descContentText = $(this).find('div.product-listing-module-description').text();
     var priceContent = $(this).find('div.product-listing-module-price').html(); <?php //echo $lC_Product->getPriceFormated(true); ?>
     
-        
-    
     var buttonContent = $(this).find('.product-listing-module-buy-now').html();
     buttonContentText = $(this).find('.product-listing-module-buy-now-button').text();
-     var textAddToWishlist = '<?php echo $lC_Language->get('add_to_wishlist'); ?>';
-     
-    
-    var textAddToCart = '<?php echo $lC_Language->get('button_add_to_cart'); ?>';    
+    var textAddToWishlist = '<?php echo $lC_Language->get('add_to_wishlist'); ?>';
+    var textAddToCart = '<?php echo $lC_Language->get('button_buy_now'); ?>';    
     buttonContent =buttonContent.replace(buttonContentText, textAddToCart);
     
     var newNameContentText = (nameContentText.length > 18) ? nameContentText.substr(0, 15) + '...' : nameContentText;
-    //nameContent = nameContent.replace(nameContentText, newNameContentText);  
-    var nameDetails="";
-    nameDetails = nameContent.replace(nameContentText, 'Details');
+    nameContent = nameContent.replace(nameContentText, newNameContentText); 
+    nameDetails = nameContent.replace(newNameContentText, 'More');
     
     var newDescContentText = (descContentText.length > 65) ? descContentText.substr(0, 62) + '...' : descContentText;
     descContent = descContent.replace(descContentText, newDescContentText);      
@@ -134,8 +129,9 @@ $(document).ready(function() {
              '      </div>'+
              '      </div>'+
              '    <div class="az_wishlistpart thumbButtons col-xs-12 col-sm-12 col-lg-12"> ' + 
-             '      <div class=" col-xs-7 col-sm-7 col-lg-7"><div class="cart col-xs-8 col-sm-8 col-lg-8">' + buttonContent + '</div></div> '+
-             '      <div class="col-xs-5 col-sm-5 col-lg-5"><div class="info col-xs-8 col-sm-8 col-lg-8">' + nameDetails + '</div></div> '+                         
+             '      <div class=" col-xs-6 col-sm-6 col-lg-6"><div class="cart">' + buttonContent + '</div></div> '+
+             '      <div class=" col-xs-1 col-sm-1 col-lg-1">&nbsp;</div> '+
+             '      <div class="col-xs-5 col-sm-5 col-lg-5"><div class="info">' + nameDetails + '</div></div> '+                         
              '    </div> '+
              '  </div>' +
              '</div>';   
