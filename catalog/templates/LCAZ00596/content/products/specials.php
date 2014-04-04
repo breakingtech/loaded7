@@ -28,7 +28,6 @@ $(document).ready(function() {
   } 
   
   $(".content-specials-listing-container").each(function(){
-    
     var imageContent = $(this).find('div.content-specials-listing-image').html();
     var nameContent = $(this).find('div.content-specials-listing-name').html();
     var nameContentText = $(this).find('div.content-specials-listing-name').text();
@@ -37,12 +36,10 @@ $(document).ready(function() {
     var priceContent = $(this).find('div.content-specials-listing-price').html();
     var buttonContent = $(this).find('.content-specials-listing-buy-now').html();
     buttonContentText = $(this).find('.content-specials-listing-buy-now-button').text();
-     
     var textAddToCart = '<?php echo $lC_Language->get('button_add_to_cart'); ?>';
     
     buttonContent =buttonContent.replace(buttonContentText, textAddToCart);
     var textAddToWishlist = '<?php echo '+ '. $lC_Language->get('add_to_wishlist'); ?>';
-     
      
     var newNameContentText = (nameContentText.length > 18) ? nameContentText.substr(0, 15) + '...' : nameContentText;
     nameContent = nameContent.replace(nameContentText, newNameContentText);  
@@ -52,16 +49,17 @@ $(document).ready(function() {
     var newDescContentText = (descContentText.length > 65) ? descContentText.substr(0, 62) + '...' : descContentText;
     descContent = descContent.replace(descContentText, newDescContentText);      
     
-     output = '<div class="' + thisContentClass+ ' with-padding">'+
+    output = '<div class="' + thisContentClass+ ' with-padding">'+
              '  <div class="thumbnail align-center large-padding-top">'+ imageContent +
-             '    <div class="caption">' +
+             '    <div class="caption no-padding-bottom">' +
              '      <h3 style="line-height:1.1;">' + nameContent + '</h3>' +
-             '      <p class="">' + descContent + '</p><br/>' +
-             '      <div class="row">' +
-             '        <div class="col-sm-6 col-lg-6">' +
+             '      <p class="">' + descContent + '</p>' +
+             '      <div class="row no-padding-top">' +
+             '        <div class="col-sm-12 col-lg-12">' +
              '          <p class="lead">' + priceContent + '</p>' + 
-             '        </div>' + 
-             '           <div class="addToCart pull-right col-sm-6 col-lg-6" >'+buttonContent+'</div>'+       
+             '        </div>' +
+             '      <div class="row mid-margin-top">' +
+             '           <div class="addToCart pull-right col-sm-12 col-lg-12" >'+ buttonContent + '</div>'+             
              '      </div>' +
              '    </div>' +
              '  </div>' +

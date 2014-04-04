@@ -98,18 +98,19 @@ $(document).ready(function() {
     
     output = '<div class="' + thisContentClass+ ' with-padding">'+
              '  <div class="thumbnail align-center large-padding-top">'+ imageContent +
-             '    <div class="caption">' +
+             '    <div class="caption no-padding-bottom">' +
              '      <h3 style="line-height:1.1;">' + nameContent + '</h3>' +
-             '      <p class="">' + descContent + '</p><br/>' +
-             '      <div class="row">' +
-             '        <div class="col-sm-6 col-lg-6">' +
+             '      <p class="">' + descContent + '</p>' +
+             '      <div class="row no-padding-top">' +
+             '        <div class="col-sm-12 col-lg-12">' +
              '          <p class="lead">' + priceContent + '</p>' + 
              '        </div>' +
-             '           <div class="addToCart pull-right col-sm-6 col-lg-6" >'+buttonContent+'</div>'+             
+             '      <div class="row mid-margin-top">' +
+             '           <div class="addToCart pull-right col-sm-12 col-lg-12" >'+ buttonContent + '</div>'+             
              '      </div>' +
              '    </div>' +
              '  </div>' +
-             '</div>';   
+             '</div>';  
               
     $(this).html(output);  
   });

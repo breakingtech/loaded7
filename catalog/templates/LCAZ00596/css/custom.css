@@ -637,7 +637,7 @@ ffffff; border-left: 6px solid transparent; content: ''; }
 }
 .thumbnail img{
     max-height: 135px;
-    min-width:123px;
+    min-width:105px;
 }
 .thumbnail h3 {
     font-family: 'arial';
@@ -661,12 +661,12 @@ ffffff; border-left: 6px solid transparent; content: ''; }
     color: #6e6e6e;
     height: 100%;
     vertical-align: bottom;
-    position: absolute;    
+/*    position: absolute;   */
 }
 .lead s{
     font-size:12px;    
-    bottom: 0;
-    position: absolute;
+  /*  bottom: 0;
+    position: absolute; */
 }
 .lead s:after{
     content:"\a";

@@ -53,7 +53,15 @@ $(document).ready(function() {
     });
   };
   $("h1.logo").fitText();
+  
+  setTimeout('setCartButtonsToBottom()', 500);  
+
 });
+
+function setCartButtonsToBottom() {
+  $(".thumbnail .addToCart").attr("style", "padding:0; position: absolute; bottom: 20px; left: -16px; padding:0;");   
+}
+
 
 /* 
   Thanks to CSS Tricks for pointing out this bit of jQuery

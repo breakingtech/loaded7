@@ -90,24 +90,24 @@ $(document).ready(function() {
     nameContent = nameContent.replace(nameContentText, newNameContentText);
     nameCompare = nameContent.replace(nameContentText, '+ Compare');  
     
-       var textAddToWishlist = '<?php echo $lC_Language->get('add_to_wishlist'); ?>';
+    var textAddToWishlist = '<?php echo $lC_Language->get('add_to_wishlist'); ?>';
     var newDescContentText = (descContentText.length > 65) ? descContentText.substr(0, 62) + '...' : descContentText;
     descContent = descContent.replace(descContentText, newDescContentText);      
     
     output = '<div class="' + thisContentClass+ ' with-padding">'+
              '  <div class="thumbnail align-center large-padding-top">'+ imageContent +
              '    <div class="caption">' +
-             '      <h3 style="line-height:1.1;">' + nameContent + '</h3>' +
-             '      <br/>' +
-             '      <div class="row">' +
-             '        <div class="col-sm-6 col-lg-6">' +
-             '          <p class="lead">' + priceContent+ '</p>' + 
+             '      <h3 style="line-height:1.1; margin-bottom:0;">' + nameContent + '</h3>' +
+             '      <div class="row no-padding-top">' +
+             '        <div class="col-sm-12 col-lg-12">' +
+             '          <p class="lead small-margin-bottom">' + priceContent + '</p>' + 
              '        </div>' +
-             '           <div class="addToCart pull-right col-sm-6 col-lg-6" >'+buttonContent+'</div>'+             
+             '      <div class="row mid-margin-top">' +
+             '           <div class="addToCart pull-right col-sm-12 col-lg-12" >'+ buttonContent + '</div>'+             
              '      </div>' +
              '    </div>' +
              '  </div>' +
-             '</div>';   
+             '</div>';
               
     $(this).html(output);  
   });
