@@ -11,7 +11,7 @@
 ?>
 <!--footer.php start-->
 <div id="sub-footer">
-  <div class="container" style="width:100%;">
+  <div class="container relative" style="width:100%;">
     <div class="row">
       <div class="col-sm-3 col-lg-3">
         <h4 class="line3 center standart-h4title"><span>New Arrivals</span></h4>
@@ -44,63 +44,98 @@
 
       <div class="col-sm-3 col-lg-3 large-margin-bottom">
         <h4 class="line3 center standard-h4title"><span>Follow Us</span></h4>
-        <?php
-          if ($lC_Template->getBranding('social_facebook_page') != '') {
-            echo '<a href="' . $lC_Template->getBranding('social_facebook_page') . '" target="_blank"><img alt="Facebook" src="' . DIR_WS_IMAGES . 'icons/facebook.png" /></a>';
-          } else {
-          ?>
-          <a href="https://www.facebook.com/Algozone"><img alt="Facebook" src="<?php echo DIR_WS_TEMPLATE_IMAGES; ?>fb_icon.png" /></a>   
-          <?php
-          }
-          if ($lC_Template->getBranding('social_twitter') != '') {
-            echo '<a href="' . $lC_Template->getBranding('social_twitter') . '" target="_blank"><img alt="Twitter" src="' . DIR_WS_IMAGES . 'icons/twitter_bird.png" /></a>';
-          } else {
-          ?>
-          <a href="https://twitter.com/algozone"><img alt="Twitter" src="<?php echo DIR_WS_TEMPLATE_IMAGES; ?>tw_icon.png" /></a> 
-          <?php
-          }
-          if ($lC_Template->getBranding('social_pinterest') != '') {
-            echo '<a href="' . $lC_Template->getBranding('social_pinterest') . '" target="_blank"><img alt="Pinterest" src="' . DIR_WS_IMAGES . 'icons/pinterest.png" /></a>';
-          } else {
-          ?>
-          <a href="http://www.flickr.com/"><img alt="flickr" src="<?php echo DIR_WS_TEMPLATE_IMAGES; ?>flkr_icon.png" /></a>
-          <?php
-          }	      
-          if ($lC_Template->getBranding('social_google_plus') != '') {
-            echo '<a href="' . $lC_Template->getBranding('social_google_plus') . '" target="_blank"><img alt="Google+" src="' . DIR_WS_IMAGES . 'icons/google_plus.png" /></a>';
-          } else {
-          ?>
-          <a href=""><img alt="RSS feed" src="<?php echo DIR_WS_TEMPLATE_IMAGES; ?>rss_icon.png" /></a>
-          <?php
-          }	
-          if ($lC_Template->getBranding('social_youtube') != '') {
-            echo '<a href="' . $lC_Template->getBranding('social_youtube') . '" target="_blank"><img alt="Youtube" src="' . DIR_WS_IMAGES . 'icons/youtube.png" /></a>';
-          } else {
-          ?>
-          <a href=""><img alt="Chat" src="<?php echo DIR_WS_TEMPLATE_IMAGES; ?>ch_icon.png" /></a> 
-          <?php
-          }
-          if ($lC_Template->getBranding('social_linkedin') != '') {
-            echo '<a href="' . $lC_Template->getBranding('social_linkedin') . '" target="_blank"><img alt="LinkedIn" src="' . DIR_WS_IMAGES . 'icons/linkedin.png" /></a>';
-          } else {
-          ?>
-          <a href=""><img alt="" src="<?php echo DIR_WS_TEMPLATE_IMAGES; ?>st_icon.png" /></a>
-          <?php
-          }
-        ?>
+
+            <div id="footer-social-icons-container">
+              <div class="thumbButtons">  
+                <div class="col-xs-4 col-sm-4 col-lg-4">
+                  <?php
+                    if ($lC_Template->getBranding('social_facebook_page') != '') {
+                      echo '<div class="social_icon"><a href="' . $lC_Template->getBranding('social_facebook_page') . '" target="_blank"><img alt="Facebook" src="' . DIR_WS_IMAGES . 'icons/facebook.png" /></a></div>';
+                    } else {
+                    ?>
+                    <div class="az_social_icon icon_facebook"><a onclick="window.open('http://www.facebook.com/algozone');"></a></div>
+                    <?php
+                    }
+                  ?>
+                </div> 
+                <div class="col-xs-4 col-sm-4 col-lg-4">
+                  <?php
+                    if ($lC_Template->getBranding('social_twitter') != '') {
+                      echo '<div class="social_icon"><a href="' . $lC_Template->getBranding('social_twitter') . '" target="_blank"><img alt="Twitter" src="' . DIR_WS_IMAGES . 'icons/twitter_bird.png" /></a></div>';
+                    } else {
+                    ?>
+                    <div class="az_social_icon icon_twitter"><a onclick="window.open('http://www.twitter.com/Algozone');"></a></div>
+                    <?php
+                    }
+                  ?>  
+                </div>     
+                <div class="col-xs-4 col-sm-4 col-lg-4">
+                  <?php
+                    if ($lC_Template->getBranding('social_youtube') != '') {
+                      echo '<div class="social_icon"><a href="' . $lC_Template->getBranding('social_youtube') . '" target="_blank"><img alt="Youtube" src="' . DIR_WS_IMAGES . 'icons/youtube.png" /></a></div>';
+                    } else {
+                    ?>
+                    <div class="az_social_icon icon_flickr"><a onclick="window.open('http://www.youtube.com/user/AlgoZoneCom');"></a></div>
+                    <?php
+                    }
+                  ?>
+                </div> 
+
+              </div> 
+              <div class="thumbButtons">  
+                <div class="col-xs-4 col-sm-4 col-lg-4">
+                  <?php
+                    if ($lC_Template->getBranding('social_pinterest') != '') {
+                      echo '<div class="social_icon"><a href="' . $lC_Template->getBranding('social_pinterest') . '" target="_blank"><img alt="Pinterest" src="' . DIR_WS_IMAGES . 'icons/pinterest.png" /></a></div>';
+                    } else {
+                    ?>
+                    <div class="az_social_icon icon_rss"><a onclick="window.open('http://www.linkedin.com/Algozone');" ></a></div>
+                    <?php
+                    }
+                  ?>
+                </div> 
+                <div class="col-xs-4 col-sm-4 col-lg-4">
+                  <?php
+                    if ($lC_Template->getBranding('social_google_plus') != '') {
+                      echo '<div class="social_icon"><a href="' . $lC_Template->getBranding('social_google_plus') . '" target="_blank"><img alt="Google+" src="' . DIR_WS_IMAGES . 'icons/google_plus.png" /></a></div>';
+                    } else {
+                    ?>
+                     <div class="az_social_icon icon_1"><a onclick="window.open('http://www.linkedin.com/Algozone');" ></a></div>
+                    <?php
+                    }
+                  ?>
+
+                </div>     
+                <div class="col-xs-4 col-sm-4 col-lg-4">
+                  <?php
+                    if ($lC_Template->getBranding('social_linkedin') != '') {
+                      echo '<div class="social_icon"><a href="' . $lC_Template->getBranding('social_linkedin') . '" target="_blank"><img alt="LinkedIn" src="' . DIR_WS_IMAGES . 'icons/linkedin.png" /></a></div>';
+                    } else {
+                    ?>
+                    <div class="az_social_icon icon_2"><a onclick="window.open('http://www.myspace.com/Algozone');"></a></div>
+                    <?php
+                    }
+                  ?>
+                </div> 
+              </div> 
+            </div> 
+
+
+
       </div>      
 
-      <!-- QR Code -->
-      <div id="qr-code-container" class="pull-right">        
-        <a id="qrcode-tooltip">
-          <span style="cursor:pointer;">
-            <img src="images/icons/qr-icon.png" alt="<?php echo $lC_Language->get('text_click_and_scan');?>" style="vertical-align:middle; padding-right:6px;" /><span class="small-margin-left"><?php echo $lC_Language->get('text_click_and_scan');?></span>
-          </span>
-        </a>
-      </div>
-      <div id="ShowQRCode"></div>      
       <div class="margin-left small-padding-left margin-right small-padding-right clear-both"><p><?php echo $lC_Template->getBranding('footer_text');?></p></div>
+      
     </div>
+    <!-- QR Code -->
+    <div id="qr-code-container">        
+      <a id="qrcode-tooltip">
+        <span style="cursor:pointer;">
+          <img src="images/icons/qr-icon.png" alt="<?php echo $lC_Language->get('text_click_and_scan');?>" style="vertical-align:middle; padding-right:6px;" /><span class="small-margin-left"><?php echo $lC_Language->get('text_click_and_scan');?></span>
+        </span>
+      </a>
+    </div>
+    <div id="ShowQRCode"></div> 
   </div>  
 </div>
 

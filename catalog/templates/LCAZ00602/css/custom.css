@@ -417,6 +417,53 @@ a:hover, a:focus {
 	color: #a5046e !important;
 }
 
+.az_social_icon {
+    height:28px;
+    width:28px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.thumbButtons .az_social_icon a {
+    position: absolute;
+    height:100%;
+    width:100%;       
+    left: 0;
+    top: 0;
+}
+
+#qr-code-container {
+  position:absolute; right:0; bottom:0;
+}
+
+.icon_facebook { 
+     background:url('../images/icon_facebook.png') no-repeat;
+}
+.icon_twitter {
+     background:url(../images/icon_twitter.png) left no-repeat;
+}
+.icon_flickr{
+     background:url(../images/icon_flickr.png) left no-repeat;
+}
+.icon_linkedin {
+     background:url(../images/icon_linkedin.png) left no-repeat;
+}
+.icon_rss {
+     background:url(../images/icon_rss.png) left no-repeat;
+}
+.icon_myspace {
+     background:url(../images/icon_myspace.png) left no-repeat;
+}
+.icon_1 { 
+    background:url(../images/icon_1.png) left no-repeat;
+}
+.icon_2{ 
+     background:url(../images/icon_2.png) left no-repeat;
+}
+
+.social_icon {
+    margin-top: 6px;
+}
 
 /* Responcive Section */
 @media (min-width: 1200px) {

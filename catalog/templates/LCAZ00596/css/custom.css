@@ -359,9 +359,6 @@ div.search-box {
 .find_us {  padding: 10px 0px; float: right; }
  .find_us a, .find_us span{ float: right; width: 24px; height: 24px; cursor: pointer; margin:0 3px;}
 
-.icon_youtube { 
-    background:url(../images/icon_top1.png) no-repeat;
-}
 .icon_facebook { 
      background:url('../images/icon_facebook.png') no-repeat;
      
@@ -381,17 +378,27 @@ div.search-box {
 .icon_myspace {
      background:url(../images/icon_myspace.png) left no-repeat;
 }
+.icon_1 { 
+    background:url(../images/icon_1.png) left no-repeat;
+}
+.icon_2{ 
+     background:url(../images/icon_2.png) left no-repeat;
+}
+
+.social_icon {
+    margin-top: 6px;
+}
 
 .cart-container p { text-align: left; margin: 22px 0 0  15px;}
 
-.az_social_icon{
+.az_social_icon {
     height:28px;
     width:28px;
     margin-top: 10px;
     margin-right: 10px;
 }
 
-.thumbButtons .az_social_icon a{
+.thumbButtons .az_social_icon a {
     position: absolute;
     height:100%;
     width:100%;       

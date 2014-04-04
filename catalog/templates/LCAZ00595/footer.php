@@ -68,85 +68,84 @@
               <li><a href="<?php echo lc_href_link(FILENAME_ACCOUNT, 'password_forgotten', 'SSL'); ?>"><?php echo 'Forgot your password?' ?></a></li>   
             </ul>     
           </div>
-
-          <div class="col-sm-2 col-lg-2 ">
+          <div class="col-sm-2 col-lg-2 no-padding-left">
             <h4 class="line3 center standard-h4title"><span>Follow Us</span></h4>
             <div> 15,237 people Online</div>
+            <div id="footer-social-icons-container" class="large-margin-right margin-left-neg">
+              <div class="thumbButtons">  
+                <div class="col-xs-4 col-sm-4 col-lg-4">
+                  <?php
+                    if ($lC_Template->getBranding('social_facebook_page') != '') {
+                      echo '<div class="social_icon"><a href="' . $lC_Template->getBranding('social_facebook_page') . '" target="_blank"><img alt="Facebook" src="' . DIR_WS_IMAGES . 'icons/facebook.png" /></a></div>';
+                    } else {
+                    ?>
+                    <div class="az_social_icon icon_facebook"><a onclick="window.open('http://www.facebook.com/algozone');"></a></div>
+                    <?php
+                    }
+                  ?>
+                </div> 
+                <div class="col-xs-4 col-sm-4 col-lg-4">
+                  <?php
+                    if ($lC_Template->getBranding('social_twitter') != '') {
+                      echo '<div class="social_icon"><a href="' . $lC_Template->getBranding('social_twitter') . '" target="_blank"><img alt="Twitter" src="' . DIR_WS_IMAGES . 'icons/twitter_bird.png" /></a></div>';
+                    } else {
+                    ?>
+                    <div class="az_social_icon icon_twitter"><a onclick="window.open('http://www.twitter.com/Algozone');"></a></div>
+                    <?php
+                    }
+                  ?>  
+                </div>     
+                <div class="col-xs-4 col-sm-4 col-lg-4">
+                  <?php
+                    if ($lC_Template->getBranding('social_youtube') != '') {
+                      echo '<div class="social_icon"><a href="' . $lC_Template->getBranding('social_youtube') . '" target="_blank"><img alt="Youtube" src="' . DIR_WS_IMAGES . 'icons/youtube.png" /></a></div>';
+                    } else {
+                    ?>
+                    <div class="az_social_icon icon_flickr"><a onclick="window.open('http://www.youtube.com/user/AlgoZoneCom');"></a></div>
+                    <?php
+                    }
+                  ?>
+                </div> 
 
-            <div class="thumbButtons">  
-              <div class="az_social_icon icon_facebook col-xs-4 col-sm-4 col-lg-4">
-                <?php
-                  if ($lC_Template->getBranding('social_facebook_page') != '') {
-                    echo '<a href="' . $lC_Template->getBranding('social_facebook_page') . '" target="_blank"><img alt="Facebook" src="' . DIR_WS_IMAGES . 'icons/facebook.png" /></a>';
-                  } else {
-                  ?>
-                  <a onclick="window.open('http://www.facebook.com/algozone');"></a>   
-                  <?php
-                  }
-                ?>
               </div> 
-              <div class="az_social_icon icon_twitter  col-xs-4 col-sm-4 col-lg-4">
-                <?php
-                  if ($lC_Template->getBranding('social_twitter') != '') {
-                    echo '<a href="' . $lC_Template->getBranding('social_twitter') . '" target="_blank"><img alt="Twitter" src="' . DIR_WS_IMAGES . 'icons/twitter_bird.png" /></a>';
-                  } else {
-                  ?>
-                  <a onclick="window.open('http://www.twitter.com/Algozone');"></a>   
+              <div class="thumbButtons">  
+                <div class="col-xs-4 col-sm-4 col-lg-4">
                   <?php
-                  }
-                ?>  
-              </div>     
-              <div class="az_social_icon icon_flickr  col-xs-4 col-sm-4 col-lg-4">
-                <?php
-                  if ($lC_Template->getBranding('social_youtube') != '') {
-                    echo '<a href="' . $lC_Template->getBranding('social_youtube') . '" target="_blank"><img alt="Youtube" src="' . DIR_WS_IMAGES . 'icons/youtube.png" /></a>';
-                  } else {
+                    if ($lC_Template->getBranding('social_pinterest') != '') {
+                      echo '<div class="social_icon"><a href="' . $lC_Template->getBranding('social_pinterest') . '" target="_blank"><img alt="Pinterest" src="' . DIR_WS_IMAGES . 'icons/pinterest.png" /></a></div>';
+                    } else {
+                    ?>
+                    <div class="az_social_icon icon_rss"><a onclick="window.open('http://www.linkedin.com/Algozone');" ></a></div>
+                    <?php
+                    }
                   ?>
-                  <a onclick="window.open('http://www.youtube.com/user/AlgoZoneCom');"></a>
+                </div> 
+                <div class="col-xs-4 col-sm-4 col-lg-4">
                   <?php
-                  }
-                ?>
-              </div> 
+                    if ($lC_Template->getBranding('social_google_plus') != '') {
+                      echo '<div class="social_icon"><a href="' . $lC_Template->getBranding('social_google_plus') . '" target="_blank"><img alt="Google+" src="' . DIR_WS_IMAGES . 'icons/google_plus.png" /></a></div>';
+                    } else {
+                    ?>
+                     <div class="az_social_icon icon_1"><a onclick="window.open('http://www.linkedin.com/Algozone');" ></a></div>
+                    <?php
+                    }
+                  ?>
 
-            </div> 
-            <div class="thumbButtons">  
-              <div class="az_social_icon icon_rss col-xs-4 col-sm-4 col-lg-4">
-                <?php
-                  if ($lC_Template->getBranding('social_pinterest') != '') {
-                    echo '<a href="' . $lC_Template->getBranding('social_pinterest') . '" target="_blank"><img alt="Pinterest" src="' . DIR_WS_IMAGES . 'icons/pinterest.png" /></a>';
-                  } else {
-                  ?>
-                  <a onclick="window.open('http://www.linkedin.com/Algozone');" ></a>
+                </div>     
+                <div class="col-xs-4 col-sm-4 col-lg-4">
                   <?php
-                  }
-                ?>
+                    if ($lC_Template->getBranding('social_linkedin') != '') {
+                      echo '<div class="social_icon"><a href="' . $lC_Template->getBranding('social_linkedin') . '" target="_blank"><img alt="LinkedIn" src="' . DIR_WS_IMAGES . 'icons/linkedin.png" /></a></div>';
+                    } else {
+                    ?>
+                    <div class="az_social_icon icon_2"><a onclick="window.open('http://www.myspace.com/Algozone');"></a></div>
+                    <?php
+                    }
+                  ?>
+                </div> 
               </div> 
-              <div class="az_social_icon icon_1  col-xs-4 col-sm-4 col-lg-4">
-                <?php
-                  if ($lC_Template->getBranding('social_google_plus') != '') {
-                    echo '<a href="' . $lC_Template->getBranding('social_google_plus') . '" target="_blank"><img alt="Google+" src="' . DIR_WS_IMAGES . 'icons/google_plus.png" /></a>';
-                  } else {
-                  ?>
-                  <a onclick="window.open('http://www.linkedin.com/Algozone');" ></a>
-                  <?php
-                  }
-                ?>
-
-              </div>     
-              <div class="az_social_icon icon_2 col-xs-4 col-sm-4 col-lg-4">
-                <?php
-                  if ($lC_Template->getBranding('social_linkedin') != '') {
-                    echo '<a href="' . $lC_Template->getBranding('social_linkedin') . '" target="_blank"><img alt="LinkedIn" src="' . DIR_WS_IMAGES . 'icons/linkedin.png" /></a>';
-                  } else {
-                  ?>
-                  <a onclick="window.open('http://www.myspace.com/Algozone');"></a>
-                  <?php
-                  }
-                ?>
-              </div> 
-            </div>   
-
-          </div><div class="clear-both"></div>                            
+            </div>              
+          </div><div class="clear-both"></div>                         
 
           <!-- QR Code -->
           <div id="qr-code-container" class="pull-right margin-top-neg large-padding-right large-margin-right">        
