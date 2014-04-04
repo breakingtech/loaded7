@@ -91,12 +91,6 @@
     </div>  
   </div>
 </div>
-
-<div class="container">
-  <div class="col-sm-12 col-lg-12 margin-top margin-bottom">
-  </div>
-</div>
-
 <div id="footer">
   <div class="container">
     <div class="container_controller">

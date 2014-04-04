@@ -34,7 +34,7 @@ body {
 }
 
 #sub-footer .container_controller  {  
-	margin: 0 26px;   
+	margin: 0;   
 	background: #95a0a2; 
 	min-height: 215px; 
 }
