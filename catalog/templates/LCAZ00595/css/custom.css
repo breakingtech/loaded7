@@ -244,6 +244,10 @@ overflow: visible;
 #loaded7 #quantity{
 }
 
+#loaded7 input[type=text] { width:98%; }
+#loaded7 input[type=password] { width:98%; }
+#loaded7 select { width:98%; }
+
 .product-info-addToCartbtn{
     width: 164px;
     height: 39px;

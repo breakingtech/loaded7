@@ -366,6 +366,10 @@ font:13px 'PT Sans', Arial, Tahoma, Verdana, Sans-Serif;color:#393939;
 
 /* end banners */
 
+#loaded7 input[type=text] { width:98%; }
+#loaded7 input[type=password] { width:98%; }
+#loaded7 select { width:98%; }
+
 a {
     color: #a5046e;
 }

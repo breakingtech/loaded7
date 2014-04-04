@@ -200,6 +200,9 @@ div.currency-box {
     float: right;
 }
 
+#loaded7 input[type=text] { width:98%; }
+#loaded7 input[type=password] { width:98%; }
+#loaded7 select { width:98%; }
 
 div.search-box {
 	padding: 18px 10px;
