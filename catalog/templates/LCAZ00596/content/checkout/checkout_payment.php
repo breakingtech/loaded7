@@ -35,15 +35,15 @@
                   <address>
                     <?php echo lC_Address::format($lC_ShoppingCart->getShippingAddress(), '<br />'); ?>                
                   </address>
-                  <div class="btn-group clearfix absolute-top-right small-padding-right small-padding-top">
-                    <button type="button" onclick="window.location.href='<?php echo lc_href_link(FILENAME_CHECKOUT, 'shipping_address', 'SSL'); ?>';" class="btn btn-default btn-xs"><?php echo $lC_Language->get('button_edit'); ?></button>
+                  <div class="btn-group clearfix absolute-top-right small-padding-top large-margin-right-neg">
+                    <button type="button" onclick="window.location.href='<?php echo lc_href_link(FILENAME_CHECKOUT, 'shipping_address', 'SSL'); ?>';" class="btn white btn-xs" style="font-size:.7em;"><?php echo $lC_Language->get('button_edit'); ?></button>
                   </div>
                 </div>
                 <div class="well relative clearfix padding-bottom"> 
                   <h4 class="no-margin-top"><?php echo $lC_Language->get('shipping_method_heading'); ?></h4>
                   <p><?php echo $lC_ShoppingCart->getShippingMethod('title'); ?></p>
-                  <div class="btn-group clearfix absolute-top-right small-padding-right small-padding-top">
-                    <button type="button" onclick="window.location.href='<?php echo lc_href_link(FILENAME_CHECKOUT, 'shipping', 'SSL'); ?>';" class="btn btn-default btn-xs"><?php echo $lC_Language->get('button_edit'); ?></button>
+                  <div class="btn-group clearfix absolute-top-right small-padding-top large-margin-right-neg">
+                    <button type="button" onclick="window.location.href='<?php echo lc_href_link(FILENAME_CHECKOUT, 'shipping', 'SSL'); ?>';" class="btn white btn-xs" style="font-size:.7em;"><?php echo $lC_Language->get('button_edit'); ?></button>
                   </div>                  
                 </div>                
                 <div class="well">
@@ -72,8 +72,8 @@
                       }                      
                     ?>
                   </address>    
-                  <div class="btn-group clearfix absolute-top-right small-padding-right small-padding-top">
-                    <button type="button" onclick="window.location.href='<?php echo lc_href_link(FILENAME_CHECKOUT, 'payment_address', 'SSL'); ?>'" class="btn btn-default btn-xs"><?php echo $lC_Language->get('button_edit'); ?></button>
+                  <div class="btn-group clearfix absolute-top-right small-padding-top large-margin-right-neg">
+                    <button type="button" onclick="window.location.href='<?php echo lc_href_link(FILENAME_CHECKOUT, 'payment_address', 'SSL'); ?>'" class="btn white btn-xs" style="font-size:.7em;"><?php echo $lC_Language->get('button_edit'); ?></button>
                   </div>                                       
                 </div>
                 <h3 class="no-margin-top"><?php echo $lC_Language->get('payment_method_title'); ?></h3>

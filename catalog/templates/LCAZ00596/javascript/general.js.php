@@ -54,7 +54,7 @@ $(document).ready(function() {
   };
   $("h1.logo").fitText();
   
-  setTimeout('setCartButtonsToBottom()', 500);  
+  setTimeout('setCartButtonsToBottom()', 800);  
 
 });
 
