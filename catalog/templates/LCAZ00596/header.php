@@ -42,7 +42,7 @@ if (isset($_SESSION['admin_login']) && $_SESSION['admin_login'] === TRUE) echo '
             
     </div>
   </div>
-  <div class="header_icon_cont col-sm-5 col-lg-5 pull-right ">
+  <div class="header_icon_cont col-sm-3 col-lg-3 pull-right">
       <div class="thumbButtons">  
             <div class="pull-right header_icon icon_cart  col-xs-3 col-sm-3 col-lg-3"><a  href="<?php echo lc_href_link(FILENAME_CHECKOUT, 'cart', 'SSL'); ?>"></a></div>     
             <div class="pull-right header_icon icon_search col-xs-3 col-sm-3 col-lg-3"><a href="<?php echo lc_href_link(FILENAME_SEARCH, 'search', 'SSL'); ?>"></a></div>
