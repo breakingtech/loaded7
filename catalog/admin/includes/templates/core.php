@@ -21,7 +21,19 @@ class lC_Template_core {
       $_version = '1.0.6',
       $_compatibility = '7.002.2.0',      
       $_groups = array('boxes' => array('left', 'right'),
-                       'content' => array('header', 'before', 'after', 'footer')),
+                       'content' => array('header', 'before', 'after', 'footer')),      
+      $_colors = array(array('id' => 'charcoal',
+                             'text' => 'Charcoal'),
+                       array('id' => 'blue_lightning',
+                             'text' => 'Blue Lightning'),
+                       array('id' => 'red_umber',
+                             'text' => 'Red Umber'),
+                       array('id' => 'green_valley',
+                             'text' => 'Green Valley'),
+                       array('id' => 'orange_summer',
+                             'text' => 'Orange Summer'),
+                       array('id' => 'yellow_highlight',
+                             'text' => 'Yellow Highlight')),
       $_keys;
 
   public function getID() {
@@ -122,6 +134,15 @@ class lC_Template_core {
     
     // added configuration values
     $lC_Database->simpleQuery("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('Core Template Color Scheme', 'TEMPLATES_" . strtoupper($this->_code) . "_COLOR_SCHEME', 'charcoal', 'The Core Template Color Scheme?', '6', '0', now(), now(), 'lc_cfg_set_template_color_pulldown_menu', 'lc_cfg_set_template_color_pulldown_menu(array(\'charcoal\',\'blue_lightning\',\'red_umber\',\'green_valley\',\'orange_summer\',\'yellow_highlight\'))')");
+    $lC_Database->simpleQuery("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('Loacalization Menu', 'TEMPLATES_" . strtoupper($this->_code) . "_HEADER_LOCALIZATION', '1', 'Display the localization menu in the header?', '6', '0', now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+    $lC_Database->simpleQuery("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('Socail Icons', 'TEMPLATES_" . strtoupper($this->_code) . "_HEADER_SOCIAL', '1', 'Display the social icons in the header?', '6', '0', now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+    $lC_Database->simpleQuery("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('Header Search', 'TEMPLATES_" . strtoupper($this->_code) . "_HEADER_SEARCH', '1', 'Display the searh field in the header?', '6', '0', now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+    $lC_Database->simpleQuery("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('Product Blurb', 'TEMPLATES_" . strtoupper($this->_code) . "_LISTING_BLURB', '1', 'Display the blurb in the products listing?', '6', '0', now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+    $lC_Database->simpleQuery("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('Featured Ribbon', 'TEMPLATES_" . strtoupper($this->_code) . "_LISTING_FEATURED_RIBBON', '1', 'Display the featured ribbon in the products listing?', '6', '0', now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+    $lC_Database->simpleQuery("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('On Sale Ribbon', 'TEMPLATES_" . strtoupper($this->_code) . "_LISTING_SALE_RIBBON', '1', 'Display the sale ribbon in the products listing?', '6', '0', now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+    $lC_Database->simpleQuery("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('New Product Ribbon', 'TEMPLATES_" . strtoupper($this->_code) . "_LISTING_NEW_RIBBON', '1', 'Display the new product ribbon in the products listing?', '6', '0', now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+    $lC_Database->simpleQuery("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('Best Seller Ribbon', 'TEMPLATES_" . strtoupper($this->_code) . "_LISTING_BEST_RIBBON', '1', 'Display the best seller ribbon in the products listing?', '6', '0', now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+    $lC_Database->simpleQuery("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('Highest Rating Ribbon', 'TEMPLATES_" . strtoupper($this->_code) . "_LISTING_RATING_RIBBON', '1', 'Display the highest rating ribbon in the products listing?', '6', '0', now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
     
   }
 
@@ -158,7 +179,16 @@ class lC_Template_core {
 
   public function getKeys() {
     if (!isset($this->_keys)) {
-      $this->_keys = array('TEMPLATES_' . strtoupper($this->_code) . '_COLOR_SCHEME');      
+      $this->_keys = array('TEMPLATES_' . strtoupper($this->_code) . '_COLOR_SCHEME',
+                           'TEMPLATES_' . strtoupper($this->_code) . '_HEADER_LOCALIZATION',
+                           'TEMPLATES_' . strtoupper($this->_code) . '_HEADER_SOCIAL',
+                           'TEMPLATES_' . strtoupper($this->_code) . '_HEADER_SEARCH',
+                           'TEMPLATES_' . strtoupper($this->_code) . '_LISTING_BLURB',
+                           'TEMPLATES_' . strtoupper($this->_code) . '_LISTING_FEATURED_RIBBON',
+                           'TEMPLATES_' . strtoupper($this->_code) . '_LISTING_SALE_RIBBON',
+                           'TEMPLATES_' . strtoupper($this->_code) . '_LISTING_NEW_RIBBON',
+                           'TEMPLATES_' . strtoupper($this->_code) . '_LISTING_BEST_RIBBON',
+                           'TEMPLATES_' . strtoupper($this->_code) . '_LISTING_RATING_RIBBON');      
     }
 
     return $this->_keys;
@@ -209,8 +239,12 @@ class lC_Template_core {
                                'params' => array('colors' => $this->getColors()));
       }
     }
-
+    
     return $keysArr;
+  }
+
+  public function getColors() {
+    return $this->_colors;
   }
 }
 ?>

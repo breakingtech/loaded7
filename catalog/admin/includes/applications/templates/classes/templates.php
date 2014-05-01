@@ -89,7 +89,7 @@ class lC_Templates_Admin {
     include($lC_Vqmod->modCheck('includes/templates/' . $id . '.php'));
     $module = 'lC_Template_' . $id;
     $module = new $module();
-
+    
     $cnt = 0;
     $keys = '';
     $result = array();
@@ -109,7 +109,7 @@ class lC_Templates_Admin {
                '  <span class="info-bubble">' .
                     $value['description'] .
                '  </span>' .
-               '</span>';
+               '</span><br /><br />';
       $cnt++;
     }
     
