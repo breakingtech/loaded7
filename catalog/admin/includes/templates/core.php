@@ -179,16 +179,16 @@ class lC_Template_core {
 
   public function getKeys() {
     if (!isset($this->_keys)) {
-      $this->_keys = array('TEMPLATES_' . strtoupper($this->_code) . '_COLOR_SCHEME',
-                           'TEMPLATES_' . strtoupper($this->_code) . '_HEADER_LOCALIZATION',
-                           'TEMPLATES_' . strtoupper($this->_code) . '_HEADER_SOCIAL',
-                           'TEMPLATES_' . strtoupper($this->_code) . '_HEADER_SEARCH',
-                           'TEMPLATES_' . strtoupper($this->_code) . '_LISTING_BLURB',
-                           'TEMPLATES_' . strtoupper($this->_code) . '_LISTING_FEATURED_RIBBON',
-                           'TEMPLATES_' . strtoupper($this->_code) . '_LISTING_SALE_RIBBON',
-                           'TEMPLATES_' . strtoupper($this->_code) . '_LISTING_NEW_RIBBON',
-                           'TEMPLATES_' . strtoupper($this->_code) . '_LISTING_BEST_RIBBON',
-                           'TEMPLATES_' . strtoupper($this->_code) . '_LISTING_RATING_RIBBON');      
+      $this->_keys = array('TEMPLATES_CORE_COLOR_SCHEME',
+                           'TEMPLATES_CORE_HEADER_LOCALIZATION',
+                           'TEMPLATES_CORE_HEADER_SOCIAL',
+                           'TEMPLATES_CORE_HEADER_SEARCH',
+                           'TEMPLATES_CORE_LISTING_BLURB',
+                           'TEMPLATES_CORE_LISTING_FEATURED_RIBBON',
+                           'TEMPLATES_CORE_LISTING_SALE_RIBBON',
+                           'TEMPLATES_CORE_LISTING_NEW_RIBBON',
+                           'TEMPLATES_CORE_LISTING_BEST_RIBBON',
+                           'TEMPLATES_CORE_LISTING_RATING_RIBBON');      
     }
 
     return $this->_keys;

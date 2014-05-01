@@ -42,7 +42,8 @@ function editTemplate(id) {
                    '</div>',
           title: '<?php echo $lC_Language->get('modal_heading_edit_template'); ?>',
           width: 500,
-                actions: {
+          height: 600,
+          actions: {
             'Close' : {
               color: 'red',
               click: function(win) { win.closeModal(); }
@@ -77,6 +78,7 @@ function editTemplate(id) {
           },
           buttonsLowPadding: true
       });
+      $(".modal").centerModal();
       $("#editTemplateFormKeys").html(data.keys);
       $("#editTemplateFormKeys").find('input').addClass('input');
       var defaultTemplate = '<?php echo DEFAULT_TEMPLATE; ?>';
