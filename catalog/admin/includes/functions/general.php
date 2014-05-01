@@ -297,13 +297,13 @@ function lc_get_serialized_variable(&$serialization_data, $variable_name, $varia
 * @param string $key The key value to use for the input field
 */
 
-function lc_call_user_func($function, $default = null, $key = null) {
+function lc_call_user_func($function, $default = null, $key = null, $params = null) {
   global $lC_Vqmod;
 
   if (strpos($function, '::') !== false) {
     $class_method = explode('::', $function);
 
-    return call_user_func(array($class_method[0], $class_method[1]), $default, $key);
+    return call_user_func(array($class_method[0], $class_method[1]), $default, $key, $params);
   } else {
     $function_name = $function;
     $function_parameter = '';
@@ -320,9 +320,9 @@ function lc_call_user_func($function, $default = null, $key = null) {
     }
 
     if (!empty($function_parameter)) {
-      return call_user_func($function_name, $function_parameter, $default, $key);
-    } else {
-      return call_user_func($function_name, $default, $key);
+      return call_user_func($function_name, $function_parameter, $default, $key, $params);
+    } else {    
+      return call_user_func($function_name, $default, $key, $params);
     }
   }
 }

@@ -93,26 +93,33 @@ class lC_Templates_Admin {
     $cnt = 0;
     $keys = '';
     $result = array();
-
-    foreach ( $module->getKeys() as $key => $value ) {
-      $keys .= '<b>' . $value['title'] . '</b><br />' . $value['description'] . '<br />';
-      if ( !empty($value['set_function']) ) {
-        $keys .= lc_call_user_func($value['set_function'], $value['value'], $key);
+    
+    foreach ($module->getConfigs() as $key => $value) {
+      $keys .= '<label class="label small-margin-top">' . 
+               '  <strong>' . $value['title'] . '</strong>' . 
+               '</label>';
+      if (!empty($value['set_function'])) {
+        $keys .= lc_call_user_func($value['set_function'], $value['value'], $key, $value['params']);
       } else {
         $keys .= lc_draw_input_field('configuration[' . $key . ']', $value['value']);
-      }
-      $keys .= '<br /><br />';
+      } 
+      $keys .= '<span class="info-spot on-left margin-left">' .
+               '  <span class="icon-info-round icon-silver">' .
+               '  </span>' .
+               '  <span class="info-bubble">' .
+                    $value['description'] .
+               '  </span>' .
+               '</span>';
       $cnt++;
     }
-    $keys = substr($keys, 0, strrpos($keys, '<br /><br />'));
-
-    $result['keys'] = substr($keys, 0, strrpos($keys, '<br /><br />'));
+    
+    $result['keys'] = $keys;
     $result['totalKeys'] = $cnt;
     $result['title'] = $module->getTitle();
     $result['code'] = $module->getCode();
     $result['author'] = $module->getAuthorName() . ' (' . $module->getAuthorAddress() . ')';
     $result['markup'] = $module->getMarkup();
-    $result['css_based'] = ( $module->isCSSBased() ? 'Yes' : 'No' );
+    $result['css_based'] = ($module->isCSSBased() ? 'Yes' : 'No');
     $result['screenshot'] = $module->getScreenshot();
     $result['medium'] = $module->getMedium();
 

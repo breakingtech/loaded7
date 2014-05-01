@@ -35,8 +35,8 @@ function editTemplate(id) {
                    '  <div id="editTemplateForm">'+
                    '    <form name="tEdit" id="tEdit" autocomplete="off" action="" method="post">'+
                    '      <p><?php echo $lC_Language->get('introduction_edit_template'); ?></p>'+
-                   '      <div id="editTemplateFormKeys"></div>'+
-                   '      <div id="editTemplateFormDefault"></div>'+
+                   '      <p><div id="editTemplateFormDefault"></div></p>'+
+                   '      <p><fieldset class="fieldset fields-list"><div class="field-block relative"><div id="editTemplateFormKeys"></div></div></fieldset></p>'+
                    '    </form>'+
                    '  </div>'+
                    '</div>',
@@ -78,6 +78,7 @@ function editTemplate(id) {
           buttonsLowPadding: true
       });
       $("#editTemplateFormKeys").html(data.keys);
+      $("#editTemplateFormKeys").find('input').addClass('input');
       var defaultTemplate = '<?php echo DEFAULT_TEMPLATE; ?>';
       if (data.code != defaultTemplate) {
         $("#editTemplateFormDefault").html('<table border="0" width="100%" cellspacing="0" cellpadding="2"><tr><td width="30%"><?php echo '<b>' . $lC_Language->get('field_set_as_default') . '</b>'; ?></td><td width="70%"><?php echo lc_draw_checkbox_field('default'); ?></td></tr></table>');
