@@ -57,7 +57,7 @@ class lC_Templates_Admin {
           $name = '<div class="strong">' . $module_title . '</div><div class="mid-margin-top"><a href="' . $module->getAuthorAddress() . '" target="_blank">' . $module->getAuthorName() . '</a></div><div class="mid-margin-top"><small>' . $module->getMarkup() . ' ' . $module->getMedium(). '</small></div>';
           $action = '<span class="button-group compact">';
           if ( $module->isInstalled() && $module->isActive() ) {
-            if ( $module->hasKeys() || ( $module->getCode() != DEFAULT_TEMPLATE ) ) {
+            if ( $module->hasKeys() ) {
               $action .= '<a href="' . ((int)($_SESSION['admin']['access']['templates'] < 3) ? '#' : 'javascript://" onclick="editTemplate(\'' . str_ireplace('.php', '', $file['name']) . '\')') . '" class="button icon-pencil' . ((int)($_SESSION['admin']['access']['templates'] < 3) ? ' disabled' : NULL) . '">' . (($media === 'mobile-portrait' || $media === 'mobile-landscape') ? NULL : $lC_Language->get('icon_edit')) . '</a>';
             }
             if ($module->getCode() != DEFAULT_TEMPLATE) {

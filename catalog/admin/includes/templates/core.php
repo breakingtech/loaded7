@@ -119,6 +119,10 @@ class lC_Template_core {
         $Qrelation->execute();
       }
     }
+    
+    // added configuration values
+    $lC_Database->simpleQuery("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) values ('Core Template Color Scheme', 'TEMPLATES_" . strtoupper($this->_code) . "_COLOR_SCHEME', 'charcoal', 'The Core Template Color Scheme?', '6', '0', now(), now(), 'lc_cfg_set_template_color_pulldown_menu', 'lc_cfg_set_template_color_pulldown_menu(array(\'charcoal\',\'blue_lightning\',\'red_umber\',\'green_valley\',\'orange_summer\',\'yellow_highlight\'))')");
+    
   }
 
   public function remove() {
@@ -142,14 +146,6 @@ class lC_Template_core {
     }
   }
 
-  public function getKeys() {
-    if (!isset($this->_keys)) {
-      $this->_keys = array();
-    }
-
-    return $this->_keys;
-  }
-
   public function hasKeys() {
     static $has_keys;
 
@@ -158,6 +154,14 @@ class lC_Template_core {
     }
 
     return $has_keys;
+  }
+
+  public function getKeys() {
+    if (!isset($this->_keys)) {
+      $this->_keys = array('TEMPLATES_' . strtoupper($this->_code) . '_COLOR_SCHEME');      
+    }
+
+    return $this->_keys;
   }
 
   public function isInstalled() {
@@ -179,6 +183,34 @@ class lC_Template_core {
 
   public function isActive() {
     return true;
+  }
+
+  /**
+  * Added for new configuration settings in template edit modal
+  * 
+  */
+  public function getConfigs() {
+    global $lC_Database;
+    
+    foreach ($this->getKeys() as $key) {
+      $Qkey = $lC_Database->query('select configuration_id, configuration_title, configuration_value, configuration_description, use_function, set_function from :table_configuration where configuration_key = :configuration_key');
+      $Qkey->bindTable(':table_configuration', TABLE_CONFIGURATION);
+      $Qkey->bindValue(':configuration_key', $key);
+      $Qkey->execute();
+      
+      while ($Qkey->next()) {
+        $keysArr[$key] = array('id' => $Qkey->valueInt('configuration_id'),
+                               'title' => $Qkey->value('configuration_title'),
+                               'value' => $Qkey->value('configuration_value'),
+                               'description' => $Qkey->value('configuration_description'),
+                               'use_function' => $Qkey->value('use_function'),
+                               'set_function' => $Qkey->value('set_function'),
+                               // add needed params arrays below for template specific configuration
+                               'params' => array('colors' => $this->getColors()));
+      }
+    }
+
+    return $keysArr;
   }
 }
 ?>
