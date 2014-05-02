@@ -90,23 +90,28 @@ $(document).ready(function() {
     var imageContent = $(this).find('div.product-listing-module-image').html();
     var nameContent = $(this).find('div.product-listing-module-name').html();
     var nameContentText = $(this).find('div.product-listing-module-name').text();
-    var descContent = $(this).find('div.product-listing-module-description').html();
-    var descContentText = $(this).find('div.product-listing-module-description').text();
+    
+    var showBlurb = '<?php echo TEMPLATES_CORE_LISTING_BLURB; ?>';
+    if (showBlurb == 1) {
+      var descContent = $(this).find('div.product-listing-module-description').html();
+      var descContentText = $(this).find('div.product-listing-module-description').text();
+
+      var newNameContentText = (nameContentText.length > 18) ? nameContentText.substr(0, 15) + '...' : nameContentText;
+      nameContent = nameContent.replace(nameContentText, newNameContentText);  
+      
+      var newDescContentText = (descContentText.length > 65) ? descContentText.substr(0, 62) + '...' : descContentText;
+      descContent = descContent.replace(descContentText, newDescContentText);
+    }
+    
     var priceContent = $(this).find('div.product-listing-module-price').html();
     var buttonContent = $(this).find('.product-listing-module-buy-now').html();
-    buttonContentText = $(this).find('.product-listing-module-buy-now-button').text();
-
-    var newNameContentText = (nameContentText.length > 18) ? nameContentText.substr(0, 15) + '...' : nameContentText;
-    nameContent = nameContent.replace(nameContentText, newNameContentText);  
-    
-    var newDescContentText = (descContentText.length > 65) ? descContentText.substr(0, 62) + '...' : descContentText;
-    descContent = descContent.replace(descContentText, newDescContentText);      
+    buttonContentText = $(this).find('.product-listing-module-buy-now-button').text();       
     
     output = '<div class="' + thisContentClass+ ' with-padding">'+
              '  <div class="thumbnail align-center large-padding-top">'+ imageContent +
              '    <div class="caption">' +
              '      <h3 style="line-height:1.1;">' + nameContent + '</h3>' +
-             '      <p class="">' + descContent + '</p>' +
+                    ((showBlurb == 1) ? '      <p class="">' + descContent + '</p>' : '') +
              '      <div class="row">' +
              '        <div class="col-sm-6 col-lg-6">' +
              '          <p class="lead small-margin-bottom">' + priceContent + '</p>' +

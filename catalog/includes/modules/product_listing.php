@@ -43,11 +43,15 @@ if ($Qlisting->numberOfRows() > 0) {
 
           case 'PRODUCT_LIST_NAME':
             if (isset($_GET['manufacturers'])) {
-              $output .= '<div class="product-listing-module-name">' . lc_link_object(lc_href_link(FILENAME_PRODUCTS, $lC_Product->getKeyword() . '&manufacturers=' . $_GET['manufacturers']), $lC_Product->getTitle()) . '</div>' . "\n" .
-                        '<div class="product-listing-module-description">' . ((strlen(lc_clean_html($lC_Product->getDescription())) > 65) ? substr(lc_clean_html($lC_Product->getDescription()), 0, 62) . '...' : lc_clean_html($lC_Product->getDescription())) . '</div>' . "\n";
+              $output .= '<div class="product-listing-module-name">' . lc_link_object(lc_href_link(FILENAME_PRODUCTS, $lC_Product->getKeyword() . '&manufacturers=' . $_GET['manufacturers']), $lC_Product->getTitle()) . '</div>' . "\n";
+              if (TEMPLATES_CORE_LISTING_BLURB == 1) {
+                $output .= '<div class="product-listing-module-description">' . ((strlen(lc_clean_html($lC_Product->getDescription())) > 65) ? substr(lc_clean_html($lC_Product->getDescription()), 0, 62) . '...' : lc_clean_html($lC_Product->getDescription())) . '</div>' . "\n";
+              }
             } else {
-              $output .= '<div class="product-listing-module-name">' . lc_link_object(lc_href_link(FILENAME_PRODUCTS, $lC_Product->getKeyword() . ($cPath ? '&cPath=' . $cPath : '')), $lC_Product->getTitle()) . '</div>' . "\n" . 
-                        '<div class="product-listing-module-description">' . ((strlen(lc_clean_html($lC_Product->getDescription())) > 65) ? substr(lc_clean_html($lC_Product->getDescription()), 0, 62) . '...' : lc_clean_html($lC_Product->getDescription())) . '</div>' . "\n";
+              $output .= '<div class="product-listing-module-name">' . lc_link_object(lc_href_link(FILENAME_PRODUCTS, $lC_Product->getKeyword() . ($cPath ? '&cPath=' . $cPath : '')), $lC_Product->getTitle()) . '</div>' . "\n"; 
+              if (TEMPLATES_CORE_LISTING_BLURB == 1) {
+                $output .= '<div class="product-listing-module-description">' . ((strlen(lc_clean_html($lC_Product->getDescription())) > 65) ? substr(lc_clean_html($lC_Product->getDescription()), 0, 62) . '...' : lc_clean_html($lC_Product->getDescription())) . '</div>' . "\n";
+              }
             }
             break;
 
