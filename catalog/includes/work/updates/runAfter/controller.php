@@ -324,12 +324,64 @@ class lC_Updates_Admin_run_after extends lC_Updates_Admin {
     if (!defined('SESSION_LIFETIME')) {
       $lC_Database->simpleQuery("INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('Session Lifetime', 'SESSION_LIFETIME', 3600, 'The amount of time a user is logged in for after the last action in seconds.', 10, 0, now(), now(), NULL, NULL);");
       parent::log("Database Update: INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('Session Lifetime', 'SESSION_LIFETIME', 3600, 'The amount of time a user is logged in for after the last action in seconds.', 10, 0, now(), now(), NULL, NULL);");
-  }
+    }
     
     if (!defined('SESSION_FORCE_COOKIES')) {
       $lC_Database->simpleQuery("INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('Force Cookie Use', 'SESSION_FORCE_COOKIES', -1, 'Force the use cookies to handle sessions.', 10, 0, now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))');");
       parent::log("Database Update: INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('Force Cookie Use', 'SESSION_FORCE_COOKIES', -1, 'Force the use cookies to handle sessions.', 10, 0, now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))');");
-}  
+    }  
+    
+    // START added for new core template configuration values
+    if (!defined('TEMPLATES_CORE_COLOR_SCHEME')) {
+      $lC_Database->simpleQuery("INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('Color Scheme', 'TEMPLATES_CORE_COLOR_SCHEME', 'charcoal', 'The Core Template Color Scheme.', 6, 0, now(), now(), 'lc_cfg_set_template_color_pulldown_menu', 'lc_cfg_set_template_color_pulldown_menu(array(''charcoal'', ''blue_lightning'', ''red_umber'', ''green_valley'', ''orange_summer'', ''yellow_highlight''))')");
+      parent::log("Database Update: INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('Color Scheme', 'TEMPLATES_CORE_COLOR_SCHEME', 'charcoal', 'The Core Template Color Scheme.', 6, 0, now(), now(), 'lc_cfg_set_template_color_pulldown_menu', 'lc_cfg_set_template_color_pulldown_menu(array(''charcoal'', ''blue_lightning'', ''red_umber'', ''green_valley'', ''orange_summer'', ''yellow_highlight''))')");
+    }  
+    
+    if (!defined('TEMPLATES_CORE_HEADER_LOCALIZATION')) {
+      $lC_Database->simpleQuery("INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('Loacalization Menu', 'TEMPLATES_CORE_HEADER_LOCALIZATION', '1', 'Display the localization menu in the header?', 6, 0, now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+      parent::log("Database Update: INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('Loacalization Menu', 'TEMPLATES_CORE_HEADER_LOCALIZATION', '1', 'Display the localization menu in the header?', 6, 0, now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+    }  
+    
+    if (!defined('TEMPLATES_CORE_HEADER_SOCIAL')) {
+      $lC_Database->simpleQuery("INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('Socail Icons', 'TEMPLATES_CORE_HEADER_SOCIAL', '1', 'Display the social icons in the header?', 6, 0, now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+      parent::log("Database Update: INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('Socail Icons', 'TEMPLATES_CORE_HEADER_SOCIAL', '1', 'Display the social icons in the header?', 6, 0, now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+    }  
+    
+    if (!defined('TEMPLATES_CORE_HEADER_SEARCH')) {
+      $lC_Database->simpleQuery("INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('Header Search', 'TEMPLATES_CORE_HEADER_SEARCH', '1', 'Display the searh field in the header?', 6, 0, now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+      parent::log("Database Update: INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('Header Search', 'TEMPLATES_CORE_HEADER_SEARCH', '1', 'Display the searh field in the header?', 6, 0, now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+    }  
+    
+    if (!defined('TEMPLATES_CORE_LISTING_BLURB')) {
+      $lC_Database->simpleQuery("INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('Product Blurb', 'TEMPLATES_CORE_LISTING_BLURB', '1', 'Display the blurb in the products listing?', 6, 0, now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+      parent::log("Database Update: INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('Product Blurb', 'TEMPLATES_CORE_LISTING_BLURB', '1', 'Display the blurb in the products listing?', 6, 0, now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+    }  
+    
+    if (!defined('TEMPLATES_CORE_LISTING_FEATURED_RIBBON')) {
+      $lC_Database->simpleQuery("INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('Featured Ribbon', 'TEMPLATES_CORE_LISTING_FEATURED_RIBBON', '1', 'Display the featured ribbon in the products listing?', 6, 0, now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+      parent::log("Database Update: INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('Featured Ribbon', 'TEMPLATES_CORE_LISTING_FEATURED_RIBBON', '1', 'Display the featured ribbon in the products listing?', 6, 0, now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+    }  
+    
+    if (!defined('TEMPLATES_CORE_LISTING_SALE_RIBBON')) {
+      $lC_Database->simpleQuery("INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('On Sale Ribbon', 'TEMPLATES_CORE_LISTING_SALE_RIBBON', '1', 'Display the sale ribbon in the products listing?', 6, 0, now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+      parent::log("Database Update: INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('On Sale Ribbon', 'TEMPLATES_CORE_LISTING_SALE_RIBBON', '1', 'Display the sale ribbon in the products listing?', 6, 0, now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+    }  
+    
+    if (!defined('TEMPLATES_CORE_LISTING_NEW_RIBBON')) {
+      $lC_Database->simpleQuery("INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('New Product Ribbon', 'TEMPLATES_CORE_LISTING_NEW_RIBBON', '1', 'Display the new product ribbon in the products listing?', 6, 0, now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+      parent::log("Database Update: INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('New Product Ribbon', 'TEMPLATES_CORE_LISTING_NEW_RIBBON', '1', 'Display the new product ribbon in the products listing?', 6, 0, now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+    }  
+    
+    if (!defined('TEMPLATES_CORE_LISTING_BEST_RIBBON')) {
+      $lC_Database->simpleQuery("INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('Best Seller Ribbon', 'TEMPLATES_CORE_LISTING_BEST_RIBBON', '1', 'Display the best seller ribbon in the products listing?', 6, 0, now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+      parent::log("Database Update: INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('Best Seller Ribbon', 'TEMPLATES_CORE_LISTING_BEST_RIBBON', '1', 'Display the best seller ribbon in the products listing?', 6, 0, now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+    }  
+    
+    if (!defined('TEMPLATES_CORE_LISTING_RATING_RIBBON')) {
+      $lC_Database->simpleQuery("INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('Highest Rating Ribbon', 'TEMPLATES_CORE_LISTING_RATING_RIBBON', '1', 'Display the highest rating ribbon in the products listing?', 6, 0, now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+      parent::log("Database Update: INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('Highest Rating Ribbon', 'TEMPLATES_CORE_LISTING_RATING_RIBBON', '1', 'Display the highest rating ribbon in the products listing?', 6, 0, now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+    }
+    // END added for new core template configuration values
      
   }
 }  
