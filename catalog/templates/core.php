@@ -34,7 +34,7 @@ if (!defined('DIR_WS_TEMPLATE_IMAGES')) define('DIR_WS_TEMPLATE_IMAGES', DIR_WS_
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700italic,700,500&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     
     <!-- Template CSS -->
-    <link rel="stylesheet" href="templates/core/css/template.css?v=1">
+    <link rel="stylesheet" href="templates/core/css/<?php echo TEMPLATES_CORE_COLOR_SCHEME; ?>.css?v=1">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
