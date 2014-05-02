@@ -343,8 +343,8 @@ class lC_Updates_Admin_run_after extends lC_Updates_Admin {
     }  
     
     if (!defined('TEMPLATES_CORE_HEADER_SOCIAL')) {
-      $lC_Database->simpleQuery("INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('Socail Icons', 'TEMPLATES_CORE_HEADER_SOCIAL', '1', 'Display the social icons in the header?', 6, 0, now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
-      parent::log("Database Update: INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('Socail Icons', 'TEMPLATES_CORE_HEADER_SOCIAL', '1', 'Display the social icons in the header?', 6, 0, now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+      $lC_Database->simpleQuery("INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('Social Icons', 'TEMPLATES_CORE_HEADER_SOCIAL', '1', 'Display the social icons in the header?', 6, 0, now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
+      parent::log("Database Update: INSERT INTO `" . $pf . "configuration` (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES('Social Icons', 'TEMPLATES_CORE_HEADER_SOCIAL', '1', 'Display the social icons in the header?', 6, 0, now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))')");
     }  
     
     if (!defined('TEMPLATES_CORE_HEADER_SEARCH')) {
