@@ -81,6 +81,7 @@ icon_backup = Backup
 icon_checkbox_ticked =
 icon_checkbox_crossed =
 icon_check_all = Check/Un-Check All
+icon_configure = Configure
 icon_content = Content
 icon_copy = Copy
 icon_copy_batch = Batch Copy
