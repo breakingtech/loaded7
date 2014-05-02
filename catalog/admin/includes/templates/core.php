@@ -216,7 +216,7 @@ class lC_Template_core {
   }
 
   /**
-  * Added for new configuration settings in template edit modal
+  * Added for new configuration settings in template configure modal
   * 
   */
   public function getConfigs() {
