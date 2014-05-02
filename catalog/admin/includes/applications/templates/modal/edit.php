@@ -34,13 +34,13 @@ function editTemplate(id) {
           content: '<div id="editTemplate">'+
                    '  <div id="editTemplateForm">'+
                    '    <form name="tEdit" id="tEdit" autocomplete="off" action="" method="post">'+
-                   '      <p><?php echo $lC_Language->get('introduction_edit_template'); ?></p>'+
+                   '      <p><?php echo $lC_Language->get('introduction_configure_template'); ?></p>'+
                    '      <p><div id="editTemplateFormDefault"></div></p>'+
                    '      <p><fieldset class="fieldset fields-list"><div class="field-block relative"><div id="editTemplateFormKeys"></div></div></fieldset></p>'+
                    '    </form>'+
                    '  </div>'+
                    '</div>',
-          title: '<?php echo $lC_Language->get('modal_heading_edit_template'); ?>',
+          title: '<?php echo $lC_Language->get('modal_heading_configure_template'); ?>',
           width: 500,
           height: 600,
           actions: {
