@@ -54,6 +54,7 @@ if (isset($_SESSION['admin_login']) && $_SESSION['admin_login'] === TRUE) echo '
           </ul>
         </li>
       </ul>
+      <?php if (TEMPLATES_CORE_HEADER_LOCALIZATION == 1) { ?>
       <ul class="locale-menu nav-item pull-right no-margin-bottom">
         <li class="dropdown">
           <?php 
@@ -72,7 +73,8 @@ if (isset($_SESSION['admin_login']) && $_SESSION['admin_login'] === TRUE) echo '
             <?php echo lC_Template_output::getTemplateCurrenciesSelection(true, true, ''); ?>
           </ul>
         </li>
-      </ul>
+      </ul>  
+      <?php } ?>
     </div>
   </div>
 </div>
@@ -146,28 +148,32 @@ if (isset($_SESSION['admin_login']) && $_SESSION['admin_login'] === TRUE) echo '
           <form role="form" class="form-inline" name="mobile-search" id="mobile-search" action="<?php echo lc_href_link(FILENAME_SEARCH, null, 'NONSSL', false); ?>" method="get">
             <span class="text-right">
               <?php
-                if ($lC_Template->getBranding('social_facebook_page') != '') {
-                  echo lc_link_object($lC_Template->getBranding('social_facebook_page'), lc_image(DIR_WS_IMAGES . 'icons/fb-ico.png', 'title', null, null, 'class="small-margin-right"'), 'target="_blank"');
+                if (TEMPLATES_CORE_HEADER_SOCIAL == 1) {
+                  if ($lC_Template->getBranding('social_facebook_page') != '') {
+                    echo lc_link_object($lC_Template->getBranding('social_facebook_page'), lc_image(DIR_WS_IMAGES . 'icons/fb-ico.png', 'title', null, null, 'class="small-margin-right"'), 'target="_blank"');
+                  }
+                  if ($lC_Template->getBranding('social_twitter') != '') {
+                    echo lc_link_object($lC_Template->getBranding('social_twitter'), lc_image(DIR_WS_IMAGES . 'icons/tw-ico.png', 'title', null, null, 'class="small-margin-right"'), 'target="_blank"');
+                  } 
+                  if ($lC_Template->getBranding('social_pinterest') != '') {
+                    echo lc_link_object($lC_Template->getBranding('social_pinterest'), lc_image(DIR_WS_IMAGES . 'icons/pn-ico.png', 'title', null, null, 'class="small-margin-right"'), 'target="_blank"');
+                  } 
+                  if ($lC_Template->getBranding('social_google_plus') != '') {
+                    echo lc_link_object($lC_Template->getBranding('social_google_plus'), lc_image(DIR_WS_IMAGES . 'icons/gp-ico.png', 'title', null, null, 'class="small-margin-right hide-on-mobile"'), 'target="_blank"');
+                  } 
+                  if ($lC_Template->getBranding('social_youtube') != '') {
+                    echo lc_link_object($lC_Template->getBranding('social_youtube'), lc_image(DIR_WS_IMAGES . 'icons/yt-ico.png', 'title', null, null, 'class="small-margin-right hide-on-mobile"'), 'target="_blank"');
+                  } 
+                  if ($lC_Template->getBranding('social_linkedin') != '') {
+                    echo lc_link_object($lC_Template->getBranding('social_linkedin'), lc_image(DIR_WS_IMAGES . 'icons/in-ico.png', 'title', null, null, 'class="small-margin-right hide-on-mobile"'), 'target="_blank"');
+                  }
                 }
-                if ($lC_Template->getBranding('social_twitter') != '') {
-                  echo lc_link_object($lC_Template->getBranding('social_twitter'), lc_image(DIR_WS_IMAGES . 'icons/tw-ico.png', 'title', null, null, 'class="small-margin-right"'), 'target="_blank"');
-                } 
-                if ($lC_Template->getBranding('social_pinterest') != '') {
-                  echo lc_link_object($lC_Template->getBranding('social_pinterest'), lc_image(DIR_WS_IMAGES . 'icons/pn-ico.png', 'title', null, null, 'class="small-margin-right"'), 'target="_blank"');
-                } 
-                if ($lC_Template->getBranding('social_google_plus') != '') {
-                  echo lc_link_object($lC_Template->getBranding('social_google_plus'), lc_image(DIR_WS_IMAGES . 'icons/gp-ico.png', 'title', null, null, 'class="small-margin-right hide-on-mobile"'), 'target="_blank"');
-                } 
-                if ($lC_Template->getBranding('social_youtube') != '') {
-                  echo lc_link_object($lC_Template->getBranding('social_youtube'), lc_image(DIR_WS_IMAGES . 'icons/yt-ico.png', 'title', null, null, 'class="small-margin-right hide-on-mobile"'), 'target="_blank"');
-                } 
-                if ($lC_Template->getBranding('social_linkedin') != '') {
-                  echo lc_link_object($lC_Template->getBranding('social_linkedin'), lc_image(DIR_WS_IMAGES . 'icons/in-ico.png', 'title', null, null, 'class="small-margin-right hide-on-mobile"'), 'target="_blank"');
-                }                  
+                if (TEMPLATES_CORE_HEADER_SEARCH == 1) {                  
               ?>
               <button type="button" class="btn btn-sm cursor-pointer small-margin-right<?php echo (($lC_ShoppingCart->numberOfItems() > 0) ? ' btn-success' : ' btn-default disabled'); ?>" onclick="window.location.href='<?php echo lc_href_link(FILENAME_CHECKOUT, 'shipping', 'SSL'); ?>'">Checkout</button>  
               <i class="fa fa-search navbar-search-icon cursor-pointer" onclick="window.location.href='<?php echo lc_href_link(FILENAME_SEARCH, '', 'NONSSL'); ?>'"></i>
               <input type="text" class="navbar-search" name="keywords" placeholder="<?php echo $lC_Language->get('button_search'); ?>"><?php echo lc_draw_hidden_session_id_field(); ?>
+              <?php } ?>
             </span>
           </form>
           <div class="mobile-portrait-search-input-cover"></div>
@@ -184,28 +190,32 @@ if (isset($_SESSION['admin_login']) && $_SESSION['admin_login'] === TRUE) echo '
             <form role="form" class="form-inline hide-on-mobile" name="search" id="search" action="<?php echo lc_href_link(FILENAME_SEARCH, null, 'NONSSL', false); ?>" method="get">
               <span class="text-right">
                 <?php
-                  if ($lC_Template->getBranding('social_facebook_page') != '') {
-                    echo lc_link_object($lC_Template->getBranding('social_facebook_page'), lc_image(DIR_WS_IMAGES . 'icons/fb-ico.png', 'title', null, null, 'class="small-margin-right"'), 'target="_blank"');
+                  if (TEMPLATES_CORE_HEADER_SOCIAL == 1) {
+                    if ($lC_Template->getBranding('social_facebook_page') != '') {
+                      echo lc_link_object($lC_Template->getBranding('social_facebook_page'), lc_image(DIR_WS_IMAGES . 'icons/fb-ico.png', 'title', null, null, 'class="small-margin-right"'), 'target="_blank"');
+                    }
+                    if ($lC_Template->getBranding('social_twitter') != '') {
+                      echo lc_link_object($lC_Template->getBranding('social_twitter'), lc_image(DIR_WS_IMAGES . 'icons/tw-ico.png', 'title', null, null, 'class="small-margin-right"'), 'target="_blank"');
+                    } 
+                    if ($lC_Template->getBranding('social_pinterest') != '') {
+                      echo lc_link_object($lC_Template->getBranding('social_pinterest'), lc_image(DIR_WS_IMAGES . 'icons/pn-ico.png', 'title', null, null, 'class="small-margin-right"'), 'target="_blank"');
+                    } 
+                    if ($lC_Template->getBranding('social_google_plus') != '') {
+                      echo lc_link_object($lC_Template->getBranding('social_google_plus'), lc_image(DIR_WS_IMAGES . 'icons/gp-ico.png', 'title', null, null, 'class="small-margin-right social-nav-gp"'), 'target="_blank"');
+                    } 
+                    if ($lC_Template->getBranding('social_youtube') != '') {
+                      echo lc_link_object($lC_Template->getBranding('social_youtube'), lc_image(DIR_WS_IMAGES . 'icons/yt-ico.png', 'title', null, null, 'class="small-margin-right social-nav-yt"'), 'target="_blank"');
+                    } 
+                    if ($lC_Template->getBranding('social_linkedin') != '') {
+                      echo lc_link_object($lC_Template->getBranding('social_linkedin'), lc_image(DIR_WS_IMAGES . 'icons/in-ico.png', 'title', null, null, 'class="small-margin-right social-nav-in"'), 'target="_blank"');
+                    }
                   }
-                  if ($lC_Template->getBranding('social_twitter') != '') {
-                    echo lc_link_object($lC_Template->getBranding('social_twitter'), lc_image(DIR_WS_IMAGES . 'icons/tw-ico.png', 'title', null, null, 'class="small-margin-right"'), 'target="_blank"');
-                  } 
-                  if ($lC_Template->getBranding('social_pinterest') != '') {
-                    echo lc_link_object($lC_Template->getBranding('social_pinterest'), lc_image(DIR_WS_IMAGES . 'icons/pn-ico.png', 'title', null, null, 'class="small-margin-right"'), 'target="_blank"');
-                  } 
-                  if ($lC_Template->getBranding('social_google_plus') != '') {
-                    echo lc_link_object($lC_Template->getBranding('social_google_plus'), lc_image(DIR_WS_IMAGES . 'icons/gp-ico.png', 'title', null, null, 'class="small-margin-right social-nav-gp"'), 'target="_blank"');
-                  } 
-                  if ($lC_Template->getBranding('social_youtube') != '') {
-                    echo lc_link_object($lC_Template->getBranding('social_youtube'), lc_image(DIR_WS_IMAGES . 'icons/yt-ico.png', 'title', null, null, 'class="small-margin-right social-nav-yt"'), 'target="_blank"');
-                  } 
-                  if ($lC_Template->getBranding('social_linkedin') != '') {
-                    echo lc_link_object($lC_Template->getBranding('social_linkedin'), lc_image(DIR_WS_IMAGES . 'icons/in-ico.png', 'title', null, null, 'class="small-margin-right social-nav-in"'), 'target="_blank"');
-                  }                  
+                  if (TEMPLATES_CORE_HEADER_SEARCH == 1) {                  
                 ?>
                 <button type="button" class="btn btn-sm cursor-pointer small-margin-right<?php echo (($lC_ShoppingCart->numberOfItems() > 0) ? ' btn-success' : ' btn-default disabled'); ?>" onclick="window.location.href='<?php echo lc_href_link(FILENAME_CHECKOUT, 'shipping', 'SSL'); ?>'">Checkout</button>  
                 <i class="fa fa-search navbar-search-icon"></i>
                 <input type="text" class="navbar-search" name="keywords" placeholder="<?php echo $lC_Language->get('button_search'); ?>"><?php echo lc_draw_hidden_session_id_field(); ?>
+              <?php } ?>
               </span>
             </form>
           </div>  
