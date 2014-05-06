@@ -18,8 +18,8 @@ class lC_Template_LCAZ00601 {
       $_css_based = '1', /* 0=No; 1=Yes */
       $_medium = 'Responsive UI',
       $_screenshot = 'LCAZ00601.png',
-      $_version = '1.0.1',
-      $_compatibility = '7.002.2.0',      
+      $_version = '1.0.2',
+      $_compatibility = '7.002.3.0',      
       $_groups = array('boxes' => array('left', 'right'),
                        'content' => array('before', 'after')),
       $_keys;
