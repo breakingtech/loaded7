@@ -6271,3 +6271,4 @@ INSERT INTO lc_weight_classes_rules (weight_class_from_id, weight_class_to_id, w
 INSERT INTO lc_weight_classes_rules (weight_class_from_id, weight_class_to_id, weight_class_rule) VALUES(4, 1, 453.5923);
 INSERT INTO lc_weight_classes_rules (weight_class_from_id, weight_class_to_id, weight_class_rule) VALUES(4, 2, 0.4535);
 INSERT INTO lc_weight_classes_rules (weight_class_from_id, weight_class_to_id, weight_class_rule) VALUES(4, 3, 16.0000);
+INSERT INTO lc_configuration ( configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, last_modified, date_added, use_function, set_function) VALUES( 'call for price', 'CALL_FOR_PRICE', '1', 'if the price was zero display call for price and block add to cart', 8, 15, now(), now(), 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))');

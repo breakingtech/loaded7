@@ -78,7 +78,14 @@
       if ( $lC_Product->hasSubProducts($lC_Product->getID()) === false) {
         ?>
         <div class="content-products-info-price-container clearfix">
-          <span class="content-products-info-price pull-left lt-blue"><?php echo $lC_Product->getPriceFormated(true); ?></span>
+          <span class="content-products-info-price pull-left lt-blue"><?php 
+            $tmp_price = $lC_Product->getPrice();
+            if(CALL_FOR_PRICE == 1 && $tmp_price == 0.00) {
+              echo $lC_Language->get('text_call_for_price');
+            } else {
+              echo $lC_Product->getPriceFormated(true);
+            }        
+        ?></span>
           <span class="content-products-info-avail with-padding-no-top-bottom"><?php echo $availability ?></span>
         </div>
         <?php
@@ -146,7 +153,15 @@
           </div>
         </div>
         <div class="col-sm-4 col-lg-4">
-          <p class="margin-top"><button onclick="$('#cart_quantity').submit();" id="btn-buy-now" class="btn btn-block btn-lg btn-success"><?php echo $lC_Language->get('button_buy_now'); ?></button></p>
+          <p class="margin-top">
+          <?php
+            $str_disabled = '';
+            if(CALL_FOR_PRICE == 1 && $tmp_price == 0.00) {
+              $str_disabled = 'disabled';
+            } 
+          ?>
+          <button onclick="$('#cart_quantity').submit();" id="btn-buy-now" class="btn btn-block btn-lg btn-success" <?php echo $str_disabled; ?>><?php echo $lC_Language->get('button_buy_now'); ?></button>
+          </p>
         </div>
       </div> 
     </div>
@@ -209,6 +224,7 @@ function refreshPrice() {
   var disableAddToCart = '<?php echo DISABLE_ADD_TO_CART; ?>'   
     
   var group = '<?php echo DEFAULT_CUSTOMERS_GROUP_ID; ?>';
+  var call_for_price = '<?php echo CALL_FOR_PRICE; ?>';
   var id = '<?php echo $lC_Product->getID(); ?>';
   var module = '<?php echo $lC_Template->getModule(); ?>';
   var isPro = '<?php echo (utility::isPro() == true) ? 1 : 0 ?>';
@@ -217,11 +233,15 @@ function refreshPrice() {
   $.getJSON(jsonLink.replace('PID', id).replace('GROUP', group).replace('NVP', nvp).split('amp;').join(''),
     function (data) {
     var currencySymbolLeft = '<?php echo $lC_Currencies->getSymbolLeft(); ?>';
+    if(call_for_price == 1 && data.price == 0) {
+      $('.content-products-info-price').html('<?php echo $lC_Language->get("text_call_for_price") ?>');
+    } else {
       var basePrice = currencySymbolLeft + data.price; 
       if (data.formatted != null) { 
         $('.content-products-info-price').html(data.formatted);
       } else {
         $('.content-products-info-price').html(basePrice);
+      }
       }
       if (data.qpbData != undefined && isPro == 1) {
         $('#qpb-message').html('<div class=""><div class="col-sm-4 col-lg-4"></div><div class="col-sm-8 col-lg-8" style="padding:0 15px;"><div class="alert alert-warning small-margin-bottom"><span class="text-left"><i class="fa fa-caret-right"></i> Buy ' + data.qpbData.nextBreak + ' for <b>' + currencySymbolLeft + data.qpbData.nextPrice + '</b> each and <b><i>save ' + data.qpbData.youSave + '</span></i></b></span></div></div></div>');

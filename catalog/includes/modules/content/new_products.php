@@ -70,12 +70,17 @@ class lC_Content_new_products extends lC_Modules {
 
       $this->_content = '';
       foreach ( $data as $product ) {
+        $str_disabled = '';
+        if(CALL_FOR_PRICE == 1 && $product['price'] == 0.00) {
+          $product['display_price'] = $lC_Language->get('text_call_for_price');
+          $str_disabled = 'disabled';
+        } 
         $this->_content .= '<div class="content-new-products-container">' . "\n";
         $this->_content .= '  <div class="content-new-products-image">' . lc_link_object(lc_href_link(FILENAME_PRODUCTS, $product['keyword']), $lC_Image->show($product['display_image'], $product['name'], 'class="content-new-products-image-src"'))  . '</div>' . "\n" . 
                            '  <div class="content-new-products-name">' . lc_link_object(lc_href_link(FILENAME_PRODUCTS, $product['keyword']), $product['name'])  . '</div>' . "\n" . 
                            '  <div class="content-new-products-desc">' . ((strlen(lc_clean_html($product['description'])) > 65) ? substr(lc_clean_html($product['description']), 0, 62) . '...' : lc_clean_html($product['description'])) . '</div>' . "\n" . 
                            '  <div class="content-new-products-price">' . $product['display_price']. '</div>' . "\n" .
-                           '  <div class="content-new-products-button"><button class="content-new-products-add-button" onclick="window.location.href=\'' . lc_href_link(FILENAME_PRODUCTS, $product['keyword'] . '&action=cart_add') . '\'" type="button">' . $lC_Language->get('new_products_button_buy_now') . '</button></div>' . "\n";
+                           '  <div class="content-new-products-button"><button class="content-new-products-add-button" onclick="window.location.href=\'' . lc_href_link(FILENAME_PRODUCTS, $product['keyword'] . '&action=cart_add') . '\'" type="button" '.$str_disabled.'>' . $lC_Language->get('new_products_button_buy_now') . '</button></div>' . "\n";
         $this->_content .= '</div>' . "\n";
       }
     }

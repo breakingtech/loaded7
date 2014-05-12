@@ -2950,5 +2950,10 @@ Your friend, %s, thought that you would be interested in %s from %s.]]></value>
       <value><![CDATA[You have removed your coupon]]></value>
       <group>general</group>
     </definition>
+    <definition>
+      <key>text_call_for_price</key>
+      <value><![CDATA[Call For Price]]></value>
+      <group>general</group>
+    </definition>
   </definitions>  
 </language>
