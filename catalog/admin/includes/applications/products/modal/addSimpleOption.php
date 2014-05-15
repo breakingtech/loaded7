@@ -244,6 +244,7 @@ function addSimpleOption(editRow) {
                       }
                     });
                     $("#entrySelectContainer").html('<select id="entry" name="entry" class="select check-list easy-multiple-selection full-width" multiple>' +  entries + '</select>').change();                    
+                    $.modal.all.centerModal();
                   }
                 );                               
                 
