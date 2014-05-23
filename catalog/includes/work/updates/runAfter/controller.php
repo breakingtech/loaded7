@@ -335,7 +335,11 @@ class lC_Updates_Admin_run_after extends lC_Updates_Admin {
     }  
     
     $lC_Database->simpleQuery("ALTER IGNORE TABLE `" . $pf . "orders_products` ADD COLUMN `products_sku` VARCHAR(255) DEFAULT NULL AFTER `products_model`");
-    parent::log("Database Update: ALTER IGNORE TABLE `" . $pf . "orders_products` ADD COLUMN `products_sku` VARCHAR(255) DEFAULT NULL AFTER `products_model`");
+    parent::log("Database Update: ALTER IGNORE TABLE `" . $pf . "orders_products` ADD COLUMN `products_sku` VARCHAR(255) DEFAULT NULL AFTER `products_model`");  
+    
+    // orders products simple options meta data col size too small fix
+    $lC_Database->simpleQuery("ALTER TABLE `" . $pf . "orders_products` MODIFY `products_simple_options_meta_data` VARCHAR(4096)");
+    parent::log("Database Update: ALTER TABLE `" . $pf . "orders_products` MODIFY `products_simple_options_meta_data` VARCHAR(4096)");
      
   }
 }  

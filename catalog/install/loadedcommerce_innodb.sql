@@ -491,7 +491,7 @@ CREATE TABLE lc_orders_products (
   products_price decimal(15,4) NOT NULL DEFAULT '0.0000',
   products_tax decimal(7,4) NOT NULL DEFAULT '0.0000',
   products_quantity int(11) NOT NULL,
-  products_simple_options_meta_data varchar(1024) DEFAULT NULL,
+  products_simple_options_meta_data varchar(4096) DEFAULT NULL,
   PRIMARY KEY (orders_products_id)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci;
 
