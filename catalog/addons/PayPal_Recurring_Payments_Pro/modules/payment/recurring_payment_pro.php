@@ -719,8 +719,8 @@ class lC_Payment_recurring_payment_pro extends lC_Payment {
     }
     $postData = $this->_getUserParams('SetExpressCheckout') .
                 "&PAYMENTREQUEST_0_PAYMENTACTION=" . $transType . 
-                "&REQCONFIRMSHIPPING=0" .
-                "&ADDROVERRIDE=1" . 
+                //"&REQCONFIRMSHIPPING=0" .
+                //"&ADDROVERRIDE=1" . 
                 "&SOLUTIONTYPE=Sole" .  
                 "&PROFILESTARTDATE=" . date("Y-m-d h:m:i") .
                 "&BILLINGPERIOD=" . $billingPeriod .

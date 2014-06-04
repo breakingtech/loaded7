@@ -766,8 +766,8 @@ class lC_Payment_payflow_pro extends lC_Payment {
                 "&SHIPTOCOUNTRY=" . $lC_ShoppingCart->getShippingAddress('country_iso_code_2') . 
                 "&SHIPTOZIP=" . $lC_ShoppingCart->getShippingAddress('postcode') . 
                 "&CURRENCY=" . $_SESSION['currency'] . 
-                "&INVNUM=" . $this->_order_id . 
-                "&ADDROVERRIDE=1";
+                "&INVNUM=" . $this->_order_id ; 
+                //"&ADDROVERRIDE=1";
 
     $response = transport::getResponse(array('url' => $action_url, 'method' => 'post', 'parameters' => $postData),'curl',true); 
     
