@@ -684,7 +684,10 @@ class lC_Payment_paypal_pro extends lC_Payment {
                 "&PAYMENTREQUEST_0_DESC=Description+goes+here". 
                 "&LOCALECODE=" . $lC_ShoppingCart->getBillingAddress('country_iso_code_2');
 
-    $response = transport::getResponse(array('url' => $action_url, 'method' => 'post', 'parameters' => $postData));   
+    $response = transport::getResponse(array('url' => $action_url, 'method' => 'post', 'parameters' => $postData),'curl',true); 
+    
+    list($headers1, $body1,$body2) = explode("\r\n\r\n", $response, 3);
+      $response = (empty($body2)) ? $body1 : $body2;   
 
     if (!$response) { // server failure error
       $lC_MessageStack->add('shopping_cart', $lC_Language->get('payment_paypal_pro_error_server'), 'error');
