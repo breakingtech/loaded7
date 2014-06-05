@@ -664,7 +664,7 @@ class lC_Payment_paypal_pro extends lC_Payment {
     $postData = $this->_getUserParams('SetExpressCheckout') .
                 "&PAYMENTREQUEST_0_PAYMENTACTION=" . $transType . 
                 //"&REQCONFIRMSHIPPING=0" .
-                "&ADDROVERRIDE=1" . 
+                //"&ADDROVERRIDE=1" . 
                 "&SOLUTIONTYPE=Sole" .                
                 "&RETURNURL=" . urlencode(lc_href_link(FILENAME_CHECKOUT, 'process', 'SSL', true, true, true)) .
                 "&CANCELURL=" . urlencode(lc_href_link(FILENAME_CHECKOUT, 'process', 'SSL', true, true, true)) .
