@@ -22,11 +22,7 @@
 
       
         $ppec = new lC_Payment_payflow_pro();
-        $_SESSION['PPEC_TOKEN'] = $ppec->setExpressCheckout();
-        
-        echo '$_SESSION[PPEC_TOKEN] : '.$_SESSION['PPEC_TOKEN'].'<br>';
-
-          die('23333333333');
+        $_SESSION['PPEC_TOKEN'] = $ppec->setExpressCheckout(); 
 
         if (!$_SESSION['PPEC_TOKEN']) {
           lc_redirect(lc_href_link(FILENAME_CHECKOUT, 'cart', 'SSL')); 
