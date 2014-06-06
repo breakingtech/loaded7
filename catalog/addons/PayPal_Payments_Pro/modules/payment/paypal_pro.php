@@ -726,6 +726,18 @@ class lC_Payment_paypal_pro extends lC_Payment {
     $paypal_pro_cc_expiry     = $_POST['paypal_pro_cc_expiry'];
     $paypal_pro_cc_cvv        = $_POST['paypal_pro_cc_cvv'];
 
+    switch($paypal_pro_cc_type) {
+      case 'American Express' :
+        $paypal_pro_cc_type = "AMEX";
+        break;
+      case 'Discover Card' :
+        $paypal_pro_cc_type = "DISCOVER";
+        break;
+      case 'MasterCard' :
+        $paypal_pro_cc_type = "MASTERCARD";
+        break;
+    }
+
     $transType = ADDONS_PAYMENT_PAYPAL_PAYMENTS_PRO_TRXTYPE ;    
     $postData = $this->_getUserParams('DoDirectPayment', $version) .
                 "&PAYMENTACTION=" . $transType . 

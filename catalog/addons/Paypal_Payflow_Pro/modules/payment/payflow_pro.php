@@ -401,7 +401,19 @@ class lC_Payment_payflow_pro extends lC_Payment {
     $payflow_pro_cc_cvv        = $_POST['payflow_pro_cc_cvv'];
     $comments = '';
     $orderdesc = '';
-
+    
+    switch($payflow_pro_cc_type) {
+      case 'American Express' :
+        $payflow_pro_cc_type = "AMEX";
+        break;
+      case 'Discover Card' :
+        $payflow_pro_cc_type = "DISCOVER";
+        break;
+      case 'MasterCard' :
+        $payflow_pro_cc_type = "MASTERCARD";
+        break;
+    }
+    
 // get the shipping amount
     $taxTotal = 0;
     $shippingTotal = 0;

@@ -780,6 +780,18 @@ class lC_Payment_recurring_payment_pro extends lC_Payment {
     $recurring_payment_pro_cc_expiry     = $_POST['recurring_payment_pro_cc_expiry'];
     $recurring_payment_pro_cc_cvv        = $_POST['recurring_payment_pro_cc_cvv'];
     
+    switch($recurring_payment_pro_cc_type) {
+      case 'American Express' :
+        $recurring_payment_pro_cc_type = "AMEX";
+        break;
+      case 'Discover Card' :
+        $recurring_payment_pro_cc_type = "DISCOVER";
+        break;
+      case 'MasterCard' :
+        $recurring_payment_pro_cc_type = "MASTERCARD";
+        break;
+    }
+
     $profileStartDate = date("Y-m-d h:i:s"); 
     $billingPeriod    = ADDONS_PAYMENT_PAYPAL_RECURRING_PAYMENTS_PRO_BILLING_PERIOD ;  
     $billingFrequency = ADDONS_PAYMENT_PAYPAL_RECURRING_PAYMENTS_PRO_BILLING_FREQUENCY ;  
