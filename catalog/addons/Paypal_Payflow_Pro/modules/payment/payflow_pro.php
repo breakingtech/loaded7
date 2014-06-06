@@ -640,8 +640,8 @@ class lC_Payment_payflow_pro extends lC_Payment {
       $action_url = 'https://payflowpro.paypal.com';  // production url
     }     
 
-    $transType = (defined('ADDONS_PAYMENT_PAYFLOW_EXPRESS_CHECKOUT_TRXTYPE') && ADDONS_PAYMENT_PAYFLOW_EXPRESS_CHECKOUT_TRXTYPE == 'Authorization') ? 'A' : 'S';
-    $returnUrl = (defined('ADDONS_PAYMENT_PAYFLOW_EXPRESS_CHECKOUT_TEMPLATE') && ADDONS_PAYMENT_PAYFLOW_EXPRESS_CHECKOUT_TEMPLATE == 'IFRAME') ?  lc_href_link(FILENAME_IREDIRECT, '', 'SSL', true, true, true) : lc_href_link(FILENAME_CHECKOUT, 'process', 'SSL', true, true, true);
+    $transType = (defined('ADDONS_PAYMENT_PAYPAL_PAYFLOW_PRO_TRXTYPE') && ADDONS_PAYMENT_PAYPAL_PAYFLOW_PRO_TRXTYPE == 'Authorization') ? 'A' : 'S';
+    $returnUrl = (defined('ADDONS_PAYMENT_PAYPAL_PAYFLOW_PRO_TEMPLATE') && ADDONS_PAYMENT_PAYPAL_PAYFLOW_PRO_TEMPLATE == 'IFRAME') ?  lc_href_link(FILENAME_IREDIRECT, '', 'SSL', true, true, true) : lc_href_link(FILENAME_CHECKOUT, 'process', 'SSL', true, true, true);
 
     $postData = $this->_getUserParams() .  
                 "&TRXTYPE=" . $transType . 
@@ -685,8 +685,8 @@ class lC_Payment_payflow_pro extends lC_Payment {
       $action_url = 'https://payflowpro.paypal.com';  // production url
     }     
 
-    $transType = (defined('ADDONS_PAYMENT_PAYFLOW_EXPRESS_CHECKOUT_TRXTYPE') && ADDONS_PAYMENT_PAYFLOW_EXPRESS_CHECKOUT_TRXTYPE == 'Authorization') ? 'A' : 'S';
-    $returnUrl = (defined('ADDONS_PAYMENT_PAYFLOW_EXPRESS_CHECKOUT_TEMPLATE') && ADDONS_PAYMENT_PAYFLOW_EXPRESS_CHECKOUT_TEMPLATE == 'IFRAME') ?  lc_href_link(FILENAME_IREDIRECT, '', 'SSL', true, true, true) : lc_href_link(FILENAME_CHECKOUT, 'process', 'SSL', true, true, true);
+    $transType = (defined('ADDONS_PAYMENT_PAYPAL_PAYFLOW_PRO_TRXTYPE') && ADDONS_PAYMENT_PAYPAL_PAYFLOW_PRO_TRXTYPE == 'Authorization') ? 'A' : 'S';
+    $returnUrl = (defined('ADDONS_PAYMENT_PAYPAL_PAYFLOW_PRO_TEMPLATE') && ADDONS_PAYMENT_PAYPAL_PAYFLOW_PRO_TEMPLATE == 'IFRAME') ?  lc_href_link(FILENAME_IREDIRECT, '', 'SSL', true, true, true) : lc_href_link(FILENAME_CHECKOUT, 'process', 'SSL', true, true, true);
 
     $postData = $this->_getUserParams() .  
                 "&TRXTYPE=" . $transType . 
@@ -747,7 +747,7 @@ class lC_Payment_payflow_pro extends lC_Payment {
       if ($ot['code'] == 'tax') $taxTotal = (float)$ot['value'];
     }         
 
-    $transType = (defined('ADDONS_PAYMENT_PAYFLOW_EXPRESS_CHECKOUT_TRXTYPE') && ADDONS_PAYMENT_PAYFLOW_EXPRESS_CHECKOUT_TRXTYPE == 'Authorization') ? 'A' : 'S';
+    $transType = (defined('ADDONS_PAYMENT_PAYPAL_PAYFLOW_PRO_TRXTYPE') && ADDONS_PAYMENT_PAYPAL_PAYFLOW_PRO_TRXTYPE == 'Authorization') ? 'A' : 'S';
     $postData = $this->_getUserParams() .  
                 "&TRXTYPE=" . $transType . 
                 "&TENDER=P" .                 
