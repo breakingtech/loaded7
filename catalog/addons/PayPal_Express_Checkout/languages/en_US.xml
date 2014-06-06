@@ -3,7 +3,7 @@
   <definitions>
     <definition>
       <key>addon_payment_paypal_EC_title</key>
-      <value><![CDATA[PayPal Express Checkout with BML]]></value>
+      <value><![CDATA[PayPal Express Checkout]]></value>
       <group>checkout</group>
     </definition>
     <definition>
@@ -13,12 +13,12 @@
     </definition>     
     <definition>
       <key>payment_paypal_EC_title</key>
-      <value><![CDATA[PayPal Express Checkout with BML <a target="_blank" href="https://www.paypal.com/in/webapps/mpp/express-checkout"><small><i><u>Learn More</u></i></small></a>]]></value>
+      <value><![CDATA[PayPal Express Checkout <a target="_blank" href="https://www.paypal.com/in/webapps/mpp/express-checkout"><small><i><u>Learn More</u></i></small></a>]]></value>
       <group>checkout</group>
     </definition>       
     <definition>
       <key>payment_paypal_EC_method_title</key>
-      <value><![CDATA[Paypal Express Checkout with BML]]></value>
+      <value><![CDATA[Paypal Express Checkout]]></value>
       <group>checkout</group>
     </definition> 
     <definition>
