@@ -587,8 +587,8 @@ class lC_Addons_Admin extends lC_Addons {
         
         if ($isEnabled) $enabled .= $addon['path'] . ';';
       }
-    }   
-       
+    } 
+    
     if ($enabled != '') $enabled = substr($enabled, 0, -1);
     if (!file_exists(DIR_FS_WORK . 'cache/addons.cache')) {
       file_put_contents(DIR_FS_WORK . 'cache/addons.cache', serialize($enabled));

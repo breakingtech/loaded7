@@ -15,7 +15,7 @@ class No_PayPal extends lC_Addon { // your addon must extend lC_Addon
     global $lC_Language;    
    /**
     * The addon type (category)
-    * valid types; payment, shipping, themes, checkout, catalog, admin, reports, connectors, other 
+    * valid types; checkout, shipping, themes, checkout, catalog, admin, reports, connectors, other 
     */    
     $this->_type = 'checkout';
    /**
@@ -25,11 +25,11 @@ class No_PayPal extends lC_Addon { // your addon must extend lC_Addon
    /**
     * The addon title used in the addons store listing
     */     
-    $this->_title = $lC_Language->get('addon_payment_no_paypal_title');
+    $this->_title = $lC_Language->get('addon_checkout_no_paypal_title');
    /**
     * The addon description used in the addons store listing
     */     
-    $this->_description = $lC_Language->get('addon_payment_no_paypal_description');
+    $this->_description = $lC_Language->get('addon_checkout_no_paypal_description');
    /**
     * The developers name
     */    
@@ -74,6 +74,8 @@ class No_PayPal extends lC_Addon { // your addon must extend lC_Addon
     global $lC_Database;
 
     $lC_Database->simpleQuery("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, use_function, set_function, date_added) values ('Enable AddOn', 'ADDONS_PAYMENT_" . strtoupper($this->_code) . "_STATUS', '-1', 'Do you want to enable this addon?', '6', '0', 'lc_cfg_use_get_boolean_value', 'lc_cfg_set_boolean_value(array(1, -1))', now())");
+    $lC_Database->simpleQuery("insert into " . TABLE_TEMPLATES_BOXES . " (title, code, author_name, author_www, modules_group) VALUES ('Allow Paypal Payment?', 'paypal_flag', 'Loaded Commerce, LLC', 'http://www.loadedcommerce.com', 'product_attributes')");
+
   }
  /**
   * Return the configuration parameter keys an an array
@@ -88,6 +90,14 @@ class No_PayPal extends lC_Addon { // your addon must extend lC_Addon
     }
 
     return $this->_keys;
-  }    
+  } 
+  
+  public function remove() {
+    global $lC_Database;
+    
+    parent::remove();
+    
+    $lC_Database->simpleQuery("delete from " . TABLE_TEMPLATES_BOXES . " where code = 'paypal_flag'");
+  }   
 }
 ?>
