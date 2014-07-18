@@ -4,12 +4,12 @@
     <definition>
       <key>addon_checkout_no_paypal_title</key>
       <value><![CDATA[No PayPal]]></value>
-      <group>checkout</group>
+      <group>general</group>
     </definition>
     <definition>
       <key>addon_checkout_no_paypal_description</key>
       <value><![CDATA[No PayPal on checkout if cart contains products flagged with "No PayPal".]]></value>
-      <group>checkout</group>
+      <group>general</group>
     </definition>  
   </definitions>
 </language>
