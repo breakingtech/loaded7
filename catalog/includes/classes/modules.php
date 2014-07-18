@@ -23,11 +23,6 @@ class lC_Modules {
 
     $this->_group = $group;
     
-echo '[' . $group . ']<br>';
-if ($group == 'payment') {
-  echo '[PMT]<br>';
-}    
-
     if ($lC_Cache->read('templates_' . $this->_group . '_layout-' . $lC_Template->getCode() . '-' . $lC_Template->getGroup() . '-' . $lC_Template->getPageContentsFilename())) {
       $data = $lC_Cache->getCache();
     } else {

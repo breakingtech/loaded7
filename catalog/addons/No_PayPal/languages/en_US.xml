@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+  <definitions>
+    <definition>
+      <key>addon_payment_no_paypal_title</key>
+      <value><![CDATA[No PayPal]]></value>
+      <group>checkout</group>
+    </definition>
+    <definition>
+      <key>addon_payment_no_paypal_description</key>
+      <value><![CDATA[No PayPal on checkout if cart contains products flagged with "No PayPal".]]></value>
+      <group>checkout</group>
+    </definition>  
+  </definitions>
+</language>
