@@ -70,6 +70,8 @@ class lC_Language_Admin extends lC_Language {
             $this->_inject($contents);
           }
           
+          unset($contents);
+
           // load all the module lang files
           $lC_DirectoryListing = new lC_DirectoryListing(DIR_FS_CATALOG . 'addons/' . $ao . '/admin/languages/' . $language_code);
           $lC_DirectoryListing->setIncludeDirectories(false);
@@ -79,11 +81,12 @@ class lC_Language_Admin extends lC_Language {
           $moduleFiles = $lC_DirectoryListing->getFiles(); 
           
           foreach ( $moduleFiles as $file ) {
-            if (file_exists($file)) {
-              $contents = file($file);
+            if (file_exists($file['path'])) {
+              $contents = file($file['path']);
               $this->_inject($contents);
+              unset($contents);
             }            
-          }         
+          }
         }
       }      
     }    
