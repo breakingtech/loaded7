@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+  <id>Catalog Payment Class</id>
+  <version>1.0.0</version>
+  <vqmver>2.3.2</vqmver>
+  <author>loadedcommerce.com</author>
+  <file name="includes/classes/payment.php">
+    <operation info="Add No PayPal Logic 1">
+      <search position="before"><![CDATA[while ($Qmodules->next()) {]]></search>         
+      <add><![CDATA[if (file_exists(DIR_FS_CATALOG . 'addons/No_PayPal/inc/payment.inc.php')) include_once(DIR_FS_CATALOG . 'addons/No_PayPal/inc/payment.inc.php');]]></add>
+    </operation>  
+    <operation info="Add No PayPal Logic 2">
+      <search position="before"><![CDATA[if ($Qmodules->value('modules_group') == 'payment') {]]></search>         
+      <add><![CDATA[if ($paypal_flag && stristr($Qmodules->value('code'), 'paypal')) continue;]]></add>
+    </operation>  
+  </file> 
+</modification>
