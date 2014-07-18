@@ -25,4 +25,5 @@
       }
       $Qchk2->freeResult(); 
     }
+    echo '<script>$(document).ready(function() { var no_paypal = ' . (($paypal_flag == true) ? 1 : 0) . '; if (no_paypal == 1) $("#paypal-ec-button-container").empty();});</script>';
 ?>

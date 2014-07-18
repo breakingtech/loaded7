@@ -212,7 +212,7 @@ class lC_ShoppingCart {
 
         // simple options
         $this->_contents[$Qproducts->valueInt('item_id')]['simple_options'] = (strlen($Qproducts->value('meta_data')) > 2) ? $Qproducts->value('meta_data') : $simple_options[$Qproducts->valueInt('item_id')];
-
+                                  
         if ( $Qproducts->valueInt('parent_id') > 0 ) {
           $Qcheck = $lC_Database->query('select products_status from :table_products where products_id = :products_id');
           $Qcheck->bindTable(':table_products', TABLE_PRODUCTS);
