@@ -1,5 +1,6 @@
 <?php
     // paypal flag   
+    global $lC_ShoppingCart;
     $Qchk = $lC_Database->query("select id from :table_templates_boxes where code = :code limit 1");
     $Qchk->bindTable(':table_templates_boxes', TABLE_TEMPLATES_BOXES);
     $Qchk->bindValue(':code', 'paypal_flag');
@@ -9,7 +10,7 @@
     
     $Qchk->freeResult();
     
-    $paypal_flag = false;
+    $paypal_flag = false; 
     foreach($lC_ShoppingCart->getProducts() as $product) {
   
       $Qchk2 = $lC_Database->query("select id from :table_product_attributes where products_id = :products_id");
